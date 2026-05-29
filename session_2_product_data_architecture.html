@@ -31,7 +31,7 @@
   --col-white:         #FFFFFF;
   --font:              'Manrope', system-ui, sans-serif;
 
-  /* Chart palette — sequential from brand colours */
+  /* Chart palette - sequential from brand colours */
   --chart-1: #005C71;
   --chart-2: #00CFB4;
   --chart-3: #003D4E;
@@ -617,10 +617,183 @@ const DECK = {
       date: "May 2025"
     },
     {
+      type: "blank",
+      eyebrow: "Blueprint Workshop Schedule",
+      headline: "1 down, **6 to go.** Keep hydrated! 💧",
+      body: `<div style="margin-top:8px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:4px">
+
+        <div style="display:flex;align-items:center;background:#F4F8FB;border:1px solid #DDE5EC;border-radius:8px;padding:7px 14px;gap:12px;opacity:0.7">
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:#059669;border-radius:6px;width:36px;height:36px;flex-shrink:0">
+            <div style="font-size:16px;color:white;font-weight:800;line-height:1">✓</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:9px;font-weight:600;color:#059669">Fri 29 May · 9:00 - 10:30am PDT · DONE</div>
+            <div style="font-size:12px;font-weight:700;color:#627180;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-decoration:line-through">Session 1: PoV Playback and Slate Operating Model</div>
+          </div>
+          <div style="background:#059669;color:white;border-radius:100px;padding:2px 10px;font-size:9px;font-weight:700;flex-shrink:0">Complete</div>
+        </div>
+
+        <div style="display:flex;align-items:center;background:#D7FFF9;border:2px solid #00CFB4;border-radius:8px;padding:7px 14px;gap:12px">
+          <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:#00CFB4;border-radius:6px;width:36px;height:36px;flex-shrink:0">
+            <div style="font-size:8px;font-weight:700;color:#005C71;text-transform:uppercase;letter-spacing:0.5px">JUN</div>
+            <div style="font-size:17px;font-weight:800;color:#070E14;line-height:1">1</div>
+          </div>
+          <div style="flex:1;min-width:0">
+            <div style="font-size:9px;font-weight:700;color:#009E8A;text-transform:uppercase;letter-spacing:0.8px">Mon 1 Jun · 9:00 - 10:30am PDT · TODAY</div>
+            <div style="font-size:12px;font-weight:800;color:#070E14;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Session 2: Product and Data Architecture</div>
+          </div>
+          <div style="background:#00CFB4;color:#070E14;border-radius:100px;padding:2px 10px;font-size:9px;font-weight:700;flex-shrink:0">Now</div>
+        </div>
+
+        ${[
+          {d:'3', m:'JUN', day:'Wed 3 Jun', name:'Session 3: Order Flow and Fulfilment'},
+          {d:'5', m:'JUN', day:'Fri 5 Jun', name:'Session 4: Customer Service and Operations'},
+          {d:'8', m:'JUN', day:'Mon 8 Jun', name:'Session 5: Payments and Financial Model'},
+          {d:'12',m:'JUN', day:'Fri 12 Jun', name:'Session 6: Maker Operating Model'},
+          {d:'15',m:'JUN', day:'Mon 15 Jun', name:'Session 7: Integration and Technical Architecture'},
+        ].map(s => "<div style=\"display:flex;align-items:center;background:white;border:1px solid #DDE5EC;border-radius:8px;padding:7px 14px;gap:12px\"><div style=\"display:flex;flex-direction:column;align-items:center;justify-content:center;background:#DBE9EE;border-radius:6px;width:36px;height:36px;flex-shrink:0\"><div style=\"font-size:8px;font-weight:700;color:#627180;text-transform:uppercase;letter-spacing:0.5px\">" + s.m + "</div><div style=\"font-size:17px;font-weight:800;color:#070E14;line-height:1\">" + s.d + "</div></div><div style=\"flex:1;min-width:0\"><div style=\"font-size:9px;font-weight:600;color:#627180\">" + s.day + " · 9:00 - 10:30am PDT</div><div style=\"font-size:12px;font-weight:700;color:#070E14;white-space:nowrap;overflow:hidden;text-overflow:ellipsis\">" + s.name + "</div></div><div style=\"background:#DBE9EE;color:#005C71;border-radius:100px;padding:2px 10px;font-size:9px;font-weight:700;flex-shrink:0\">Slate + MP</div></div>").join('')}
+
+      </div>`
+    },
+    {
+      type: "blank",
+      eyebrow: "Marketplacer Key Terminology",
+      headline: "Before We Begin: **Key Terms**",
+      body: `<div style="margin-top:10px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:0;border-radius:12px;overflow:hidden;border:1px solid #DDE5EC;box-shadow:0 4px 16px rgba(7,14,20,0.06)">
+
+        <div style="display:grid;grid-template-columns:140px 1fr;background:#070E14">
+          <div style="padding:10px 16px;font-size:11px;font-weight:800;color:white;border-right:1px solid rgba(255,255,255,0.1)">Term</div>
+          <div style="padding:10px 16px;font-size:11px;font-weight:800;color:white">Definition</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;background:white;border-top:1px solid #DDE5EC">
+          <div style="padding:10px 16px;font-size:12px;font-weight:800;color:#070E14;border-right:1px solid #DDE5EC">Operator</div>
+          <div style="padding:10px 16px;font-size:12px;color:#627180;line-height:1.5">The business entity responsible for running the entire marketplace. In this context, <strong style="color:#070E14">Slate</strong> is the Operator.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;background:#F4F8FB;border-top:1px solid #DDE5EC">
+          <div style="padding:10px 16px;font-size:12px;font-weight:800;color:#070E14;border-right:1px solid #DDE5EC">Seller / Maker</div>
+          <div style="padding:10px 16px;font-size:12px;color:#627180;line-height:1.5">A business entity that sells on the marketplace. In Slate's model, Sellers are called <strong style="color:#070E14">Makers</strong>. A marketplace typically has multiple Sellers.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;background:white;border-top:1px solid #DDE5EC">
+          <div style="padding:10px 16px;font-size:12px;font-weight:800;color:#070E14;border-right:1px solid #DDE5EC">Advert</div>
+          <div style="padding:10px 16px;font-size:12px;color:#627180;line-height:1.5">A <strong style="color:#070E14">Product</strong> for sale on the marketplace. Terms are interchangeable - "Advert" is used in API and technical contexts; "Product" is used in business discussions.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;background:#F4F8FB;border-top:1px solid #DDE5EC">
+          <div style="padding:10px 16px;font-size:12px;font-weight:800;color:#070E14;border-right:1px solid #DDE5EC">Variant</div>
+          <div style="padding:10px 16px;font-size:12px;color:#627180;line-height:1.5">An Advert must have at least 1 Variant, but can have more. Barcodes, SKUs, and inventory are held at the <strong style="color:#070E14">Variant level</strong> - e.g. a T-shirt Advert with size S, M, L as Variants.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;background:white;border-top:1px solid #DDE5EC">
+          <div style="padding:10px 16px;font-size:12px;font-weight:800;color:#070E14;border-right:1px solid #DDE5EC">Order</div>
+          <div style="padding:10px 16px;font-size:12px;color:#627180;line-height:1.5">Placed by a customer for 1 or more Advert Variants. An Order is a <strong style="color:#070E14">marketplace-level</strong> object - a single order can span multiple Makers.</div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:140px 1fr;background:#F4F8FB;border-top:1px solid #DDE5EC">
+          <div style="padding:10px 16px;font-size:12px;font-weight:800;color:#070E14;border-right:1px solid #DDE5EC">Invoice</div>
+          <div style="padding:10px 16px;font-size:12px;color:#627180;line-height:1.5">An individual Seller's "part" of an Order. An Order will always have at least 1 Invoice - more if products from <strong style="color:#070E14">multiple Makers</strong> are purchased.</div>
+        </div>
+
+      </div>`
+    },
+    {
+      type: "blank",
+      eyebrow: "Marketplacer Product Data Model",
+      headline: "**Product** Data Model",
+      body: `<div style="margin-top:8px;font-family:Manrope,sans-serif;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+
+        <div>
+          <div style="font-size:12px;color:#627180;line-height:1.6;margin-bottom:14px">A Maker (Seller) owns one or more Adverts. Each Advert must have at least one Variant. SKUs, barcodes, and stock are managed at the Variant level.</div>
+          <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:380px">
+            <!-- Seller -->
+            <rect x="10" y="110" width="90" height="44" rx="8" fill="#1E2D3D"/>
+            <text x="55" y="137" text-anchor="middle" font-family="Manrope,sans-serif" font-size="13" font-weight="700" fill="white">Maker 1</text>
+            <!-- Lines from Seller to Adverts -->
+            <line x1="100" y1="132" x2="150" y2="88" stroke="#DDE5EC" stroke-width="1.5"/>
+            <line x1="100" y1="132" x2="150" y2="212" stroke="#DDE5EC" stroke-width="1.5"/>
+            <!-- Advert 1 -->
+            <rect x="150" y="66" width="90" height="44" rx="8" fill="#00CFB4"/>
+            <text x="195" y="93" text-anchor="middle" font-family="Manrope,sans-serif" font-size="12" font-weight="700" fill="#070E14">Advert 1</text>
+            <!-- Advert 2 -->
+            <rect x="150" y="190" width="90" height="44" rx="8" fill="#00CFB4"/>
+            <text x="195" y="217" text-anchor="middle" font-family="Manrope,sans-serif" font-size="12" font-weight="700" fill="#070E14">Advert 2</text>
+            <!-- Lines from Advert 1 to Variants -->
+            <line x1="240" y1="88" x2="290" y2="44" stroke="#DDE5EC" stroke-width="1.5"/>
+            <line x1="240" y1="88" x2="290" y2="88" stroke="#DDE5EC" stroke-width="1.5"/>
+            <line x1="240" y1="88" x2="290" y2="132" stroke="#DDE5EC" stroke-width="1.5"/>
+            <!-- Lines from Advert 2 to Variants -->
+            <line x1="240" y1="212" x2="290" y2="190" stroke="#DDE5EC" stroke-width="1.5"/>
+            <line x1="240" y1="212" x2="290" y2="234" stroke="#DDE5EC" stroke-width="1.5"/>
+            <!-- Variants -->
+            <rect x="290" y="22" width="80" height="36" rx="7" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="330" y="45" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#005C71">Variant 1</text>
+            <rect x="290" y="66" width="80" height="36" rx="7" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="330" y="89" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#005C71">Variant 2</text>
+            <rect x="290" y="110" width="80" height="36" rx="7" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="330" y="133" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#005C71">Variant 3</text>
+            <rect x="290" y="168" width="80" height="36" rx="7" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="330" y="191" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#005C71">Variant 4</text>
+            <rect x="290" y="212" width="80" height="36" rx="7" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="330" y="235" text-anchor="middle" font-family="Manrope,sans-serif" font-size="11" font-weight="700" fill="#005C71">Variant 5</text>
+          </svg>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:12px;font-weight:700;color:#070E14;margin-bottom:2px">Advert Vetting Flow</div>
+          <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:340px">
+            <!-- Advert Created -->
+            <circle cx="36" cy="80" r="32" fill="#1E2D3D"/>
+            <text x="36" y="76" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="700" fill="#00CFB4">Advert</text>
+            <text x="36" y="89" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="700" fill="#00CFB4">Created</text>
+            <!-- Arrow -->
+            <line x1="68" y1="80" x2="88" y2="80" stroke="#627180" stroke-width="1.5" marker-end="url(#arr)"/>
+            <!-- Submit -->
+            <circle cx="120" cy="80" r="32" fill="#1E2D3D"/>
+            <text x="120" y="76" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="700" fill="#00CFB4">Submit</text>
+            <text x="120" y="89" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="700" fill="#00CFB4">for Approval</text>
+            <!-- Arrow -->
+            <line x1="152" y1="80" x2="172" y2="80" stroke="#627180" stroke-width="1.5" marker-end="url(#arr)"/>
+            <!-- Diamond -->
+            <polygon points="204,60 228,80 204,100 180,80" fill="#1E2D3D"/>
+            <text x="204" y="76" text-anchor="middle" font-family="Manrope,sans-serif" font-size="8" font-weight="700" fill="#00CFB4">Approve</text>
+            <text x="204" y="88" text-anchor="middle" font-family="Manrope,sans-serif" font-size="8" font-weight="700" fill="#00CFB4">Advert?</text>
+            <!-- YES arrow -->
+            <line x1="228" y1="80" x2="248" y2="80" stroke="#627180" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="238" y="74" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="600" fill="#070E14">Yes</text>
+            <!-- Advert Listed -->
+            <circle cx="296" cy="80" r="32" fill="#1E2D3D"/>
+            <text x="296" y="76" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="700" fill="#00CFB4">Advert</text>
+            <text x="296" y="89" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" font-weight="700" fill="#00CFB4">Listed</text>
+            <!-- NO arrow down -->
+            <line x1="204" y1="100" x2="204" y2="150" stroke="#627180" stroke-width="1.5" marker-end="url(#arr)"/>
+            <text x="212" y="132" font-family="Manrope,sans-serif" font-size="9" font-weight="600" fill="#070E14">No</text>
+            <!-- Make changes -->
+            <circle cx="204" cy="182" r="32" fill="#1E2D3D"/>
+            <text x="204" y="174" text-anchor="middle" font-family="Manrope,sans-serif" font-size="8" font-weight="700" fill="#00CFB4">Make</text>
+            <text x="204" y="185" text-anchor="middle" font-family="Manrope,sans-serif" font-size="8" font-weight="700" fill="#00CFB4">changes to</text>
+            <text x="204" y="196" text-anchor="middle" font-family="Manrope,sans-serif" font-size="8" font-weight="700" fill="#00CFB4">Advert</text>
+            <!-- Loop back arrow -->
+            <path d="M172 182 Q120 182 120 112" stroke="#627180" stroke-width="1.5" fill="none" marker-end="url(#arr)"/>
+            <defs>
+              <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                <path d="M0,0 L6,3 L0,6 Z" fill="#627180"/>
+              </marker>
+            </defs>
+          </svg>
+          <div style="background:#D7FFF9;border:1px solid #00CFB4;border-radius:8px;padding:10px 12px;font-size:11px;color:#005C71;line-height:1.55">
+            In Slate's model, <strong>Akeneo</strong> performs the approval step - calling <code style="font-size:10px;background:rgba(0,92,113,0.1);padding:1px 4px;border-radius:3px">advertVettingApprove</code> or <code style="font-size:10px;background:rgba(0,92,113,0.1);padding:1px 4px;border-radius:3px">advertVettingReject</code> back to Marketplacer.
+          </div>
+        </div>
+
+      </div>`
+    },
+    {
       type: "agenda",
       eyebrow: "Session 2",
       headline: "What we'll **cover**",
-      sub: "90-minute working session — decisions by Slate, facilitated by Marketplacer",
+      sub: "90-minute working session - decisions by Slate, facilitated by Marketplacer",
       total: "90 minutes",
       items: [
         { title: "How Advert Vetting works in Marketplacer", duration: "20 min" },
@@ -635,15 +808,15 @@ const DECK = {
       label: "Topic 1",
       number: "01",
       headline: "How Advert **Vetting** Works",
-      sub: "The Marketplacer product approval mechanism — opt-in, operator-controlled, API-automatable"
+      sub: "The Marketplacer product approval mechanism - opt-in, operator-controlled, API-automatable"
     },
     {
       type: "two-col",
-      eyebrow: "Advert Vetting — Concepts",
+      eyebrow: "Advert Vetting - Concepts",
       headline: "Published ≠ **Vetted** ≠ **Live**",
       body: "In Marketplacer, 'Adverts' are Products. Vetting is the final approval gate before a product can be listed on the storefront. It is separate from Catalog Rules validation.",
       points: [
-        "Advert Vetting is opt-in — it must be enabled for the Slate marketplace",
+        "Advert Vetting is opt-in - it must be enabled for the Slate marketplace",
         "Catalog Rules check structural validity automatically (field completeness, image count etc.)",
         "Vetting is the human review gate for things Catalog Rules cannot automate",
         "Only when an advert is both Published AND Vetted does it become live",
@@ -659,21 +832,21 @@ const DECK = {
               <div style="width:28px;height:28px;border-radius:50%;background:#DBE9EE;color:#005C71;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">1</div>
               <div>
                 <div style="font-size:12px;font-weight:700;color:#070E14">Create product</div>
-                <div style="font-size:10px;color:#627180">Mandatory — manual, xlsx, or API</div>
+                <div style="font-size:10px;color:#627180">Mandatory - manual, xlsx, or API</div>
               </div>
             </div>
             <div style="display:flex;align-items:center;gap:10px">
               <div style="width:28px;height:28px;border-radius:50%;background:#DBE9EE;color:#005C71;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div>
               <div>
                 <div style="font-size:12px;font-weight:700;color:#070E14">Catalog Rules Validation</div>
-                <div style="font-size:10px;color:#627180">Optional — automated structural checks</div>
+                <div style="font-size:10px;color:#627180">Optional - automated structural checks</div>
               </div>
             </div>
             <div style="display:flex;align-items:center;gap:10px">
               <div style="width:28px;height:28px;border-radius:50%;background:#D7FFF9;color:#009E8A;font-size:11px;font-weight:800;border:2px solid #00CFB4;display:flex;align-items:center;justify-content:center;flex-shrink:0">3</div>
               <div>
                 <div style="font-size:12px;font-weight:700;color:#070E14">Product Vetting</div>
-                <div style="font-size:10px;color:#009E8A;font-weight:600">Optional — human review gate → live</div>
+                <div style="font-size:10px;color:#009E8A;font-weight:600">Optional - human review gate → live</div>
               </div>
             </div>
           </div>
@@ -705,13 +878,13 @@ const DECK = {
         </div>
         <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;padding:14px 16px">
           <div style="font-family:'Courier New',monospace;font-size:12px;font-weight:700;color:#DC2626;margin-bottom:6px">vettingRejectedReason</div>
-          <div style="font-size:12px;color:#627180;line-height:1.55">Textual description of why the advert was rejected — returned to the Maker so they can rectify and resubmit.</div>
+          <div style="font-size:12px;color:#627180;line-height:1.55">Textual description of why the advert was rejected - returned to the Maker so they can rectify and resubmit.</div>
         </div>
       </div>`
     },
     {
       type: "table",
-      eyebrow: "Advert Vetting — State Machine",
+      eyebrow: "Advert Vetting - State Machine",
       headline: "Field State at **Each Stage**",
       columns: ["Stage", "Participant", "requiresVetting", "vetted", "vettingRejected", "vettingRejectedReason"],
       rows: [
@@ -733,36 +906,101 @@ const DECK = {
     {
       type: "blank",
       eyebrow: "Integration Pattern",
-      headline: "Webhook-Driven **Vetting Flow** — System Sequence",
-      body: `<div style="margin-top:8px;font-family:Manrope,sans-serif">
-        <div style="background:#070E14;border-radius:12px;padding:18px 24px;overflow:auto;max-height:460px">
-<pre style="margin:0;color:#e5e7eb;font-size:11px;line-height:1.75;font-family:'Courier New',monospace">sequenceDiagram
-    participant Maker as Maker (Seller)
-    participant MP as Marketplacer
-    participant OpSys as Operator System (Akeneo)
-    participant CT as commercetools
+      headline: "Webhook-Driven **Vetting Flow** - System Sequence",
+      body: `<div style="font-family:Manrope,sans-serif;margin-top:4px">
+        <div style="overflow-x:auto;border-radius:12px;border:1px solid #DDE5EC;background:#FAFCFE">
+          <svg viewBox="0 0 980 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:860px;display:block;font-family:Manrope,sans-serif">
+            <!-- Participant boxes -->
+            <rect x="20" y="10" width="140" height="36" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="90" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#005C71">Maker (Seller)</text>
+            <rect x="280" y="10" width="140" height="36" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="350" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#005C71">Marketplacer</text>
+            <rect x="560" y="10" width="170" height="36" rx="8" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/>
+            <text x="645" y="28" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">Operator System</text>
+            <text x="645" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">(Akeneo)</text>
+            <rect x="830" y="10" width="130" height="36" rx="8" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="895" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#005C71">commercetools</text>
 
-    Maker->>MP: Create and enrich product
-    Note over MP: requiresVetting = true
-    MP->>OpSys: Emit webhook: advert/update
-    Note over MP: Webhook payload contains:<br/>id, legacyId, vettingRejected,<br/>requiresVetting, requiresVettingAt,<br/>vetted, vettingRejectedReason
+            <!-- Lifelines -->
+            <line x1="90" y1="46" x2="90" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="350" y1="46" x2="350" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="645" y1="52" x2="645" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="895" y1="46" x2="895" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
 
-    OpSys->>OpSys: Validate product data
+            <!-- Step 1: Maker creates product -->
+            <line x1="90" y1="72" x2="344" y2="72" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
+            <text x="215" y="68" text-anchor="middle" font-size="10" fill="#070E14">Create and enrich product</text>
+            <!-- requiresVetting note -->
+            <rect x="278" y="78" width="144" height="22" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+            <text x="350" y="93" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">requiresVetting = true</text>
 
-    alt Product data is VALID
-        OpSys->>MP: advertVettingApprove mutation
-        Note over MP: vetted = true<br/>requiresVetting = false
-        MP->>CT: Sync product to catalogue
-        CT-->>Maker: Product is live
-    else Product data is INVALID
-        OpSys->>MP: advertVettingReject mutation<br/>(with vettingRejectedReason)
-        Note over MP: vettingRejected = true<br/>requiresVetting = false
-        MP-->>Maker: Notify: rejection + reason
-        Maker->>MP: Rectify advert (advertUpsert)
-        Maker->>MP: Resubmit (advertVettingResubmit)
-        Note over MP: requiresVetting = true again
-        MP->>OpSys: Emit webhook: advert/update
-    end</pre>
+            <!-- Step 2: MP emits webhook -->
+            <line x1="350" y1="112" x2="639" y2="112" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
+            <text x="495" y="108" text-anchor="middle" font-size="10" fill="#070E14">Emit webhook: advert/update</text>
+            <!-- Payload note -->
+            <rect x="80" y="118" width="530" height="20" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+            <text x="345" y="132" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">Payload: id, legacyId, vettingRejected, requiresVetting, requiresVettingAt, vetted, vettingRejectedReason</text>
+
+            <!-- Step 3: Akeneo validates -->
+            <path d="M645 148 Q665 148 665 160 Q665 172 645 172" stroke="#070E14" stroke-width="1.5" fill="none" marker-end="url(#arrowDark)"/>
+            <text x="686" y="164" font-size="10" fill="#070E14">Validate</text>
+
+            <!-- ALT box -->
+            <rect x="22" y="180" width="950" height="268" rx="6" fill="none" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <rect x="22" y="180" width="36" height="18" rx="3" fill="#DDE5EC"/>
+            <text x="40" y="193" text-anchor="middle" font-size="10" font-weight="700" fill="#005C71">alt</text>
+            <text x="64" y="193" font-size="10" fill="#627180">[Product data is VALID]</text>
+
+            <!-- VALID path -->
+            <line x1="645" y1="208" x2="356" y2="208" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+            <text x="495" y="204" text-anchor="middle" font-size="10" fill="#059669">advertVettingApprove mutation</text>
+            <rect x="278" y="214" width="144" height="22" rx="4" fill="#DCFCE7" stroke="#059669" stroke-width="1"/>
+            <text x="350" y="229" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">vetted = true · requiresVetting = false</text>
+            <line x1="350" y1="244" x2="889" y2="244" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
+            <text x="615" y="240" text-anchor="middle" font-size="10" fill="#059669">Sync product to catalogue</text>
+            <line x1="895" y1="258" x2="96" y2="258" stroke="#059669" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowGreen)"/>
+            <text x="495" y="254" text-anchor="middle" font-size="10" fill="#059669">Product is live</text>
+
+            <!-- Divider -->
+            <line x1="22" y1="272" x2="972" y2="272" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="64" y="284" font-size="10" fill="#627180">[Product data is INVALID]</text>
+
+            <!-- INVALID path -->
+            <line x1="645" y1="294" x2="356" y2="294" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowRed)"/>
+            <text x="495" y="290" text-anchor="middle" font-size="10" fill="#DC2626">advertVettingReject (with vettingRejectedReason)</text>
+            <rect x="256" y="300" width="188" height="22" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+            <text x="350" y="315" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">vettingRejected = true · requiresVetting = false</text>
+            <line x1="350" y1="330" x2="96" y2="330" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowRed)"/>
+            <text x="215" y="326" text-anchor="middle" font-size="10" fill="#DC2626">Notify: rejection + reason</text>
+            <line x1="90" y1="344" x2="344" y2="344" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
+            <text x="215" y="340" text-anchor="middle" font-size="10" fill="#070E14">Rectify advert (advertUpsert)</text>
+            <line x1="90" y1="360" x2="344" y2="360" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
+            <text x="215" y="356" text-anchor="middle" font-size="10" fill="#070E14">Resubmit (advertVettingResubmit)</text>
+            <rect x="278" y="366" width="144" height="22" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+            <text x="350" y="381" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">requiresVetting = true again</text>
+            <line x1="350" y1="396" x2="639" y2="396" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
+            <text x="495" y="392" text-anchor="middle" font-size="10" fill="#070E14">Emit webhook: advert/update</text>
+
+            <!-- Bottom participant boxes -->
+            <rect x="20" y="446" width="140" height="28" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="90" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">Maker (Seller)</text>
+            <rect x="280" y="446" width="140" height="28" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="350" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">Marketplacer</text>
+            <rect x="560" y="446" width="170" height="28" rx="8" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/>
+            <text x="645" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">Operator System (Akeneo)</text>
+            <rect x="830" y="446" width="130" height="28" rx="8" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="895" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">commercetools</text>
+
+            <defs>
+              <marker id="arrowDark" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#070E14"/></marker>
+              <marker id="arrowGreen" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#059669"/></marker>
+              <marker id="arrowRed" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#DC2626"/></marker>
+            </defs>
+          </svg>
+        </div>
+        <div style="margin-top:8px;background:#F4F8FB;border-radius:8px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-size:11px;color:#627180">Green = valid path &nbsp;·&nbsp; Red = rejection path &nbsp;·&nbsp; Yellow notes = state changes</div>
+          <div style="font-size:11px;color:#627180;font-style:italic">🍺 Buy me a beer and I'll share the Mermaid UML</div>
         </div>
       </div>`
     },
@@ -779,7 +1017,8 @@ const DECK = {
         <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;padding:14px 16px">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#627180;margin-bottom:6px">Seller API</div>
           <div style="font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:#005C71;margin-bottom:6px">advertVettingResubmit</div>
-          <div style="font-size:12px;color:#627180;line-height:1.55">Dedicated resubmit mutation — required in addition to advertUpsert. Explicitly re-enters the advert into the vetting queue. Accepts multiple advert IDs.</div>
+          <div style="font-size:12px;color:#627180;line-height:1.55">Dedicated resubmit mutation - required in addition to advertUpsert. Explicitly re-enters the advert into the vetting queue. Accepts multiple advert IDs.</div>
+          <div style="margin-top:8px;background:#DBE9EE;border-radius:6px;padding:6px 10px;font-size:11px;color:#005C71;line-height:1.5">A Maker can also trigger resubmission via the <strong>Seller Portal UI</strong> or <strong>batch (xlsx) import</strong> - the API mutation fires under the hood in both cases.</div>
         </div>
         <div style="background:#D7FFF9;border:1px solid #00CFB4;border-radius:10px;padding:14px 16px">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#009E8A;margin-bottom:6px">Operator API</div>
@@ -789,7 +1028,7 @@ const DECK = {
         <div style="background:#FEF2F2;border:1px solid #DC2626;border-radius:10px;padding:14px 16px">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#DC2626;margin-bottom:6px">Operator API</div>
           <div style="font-family:'Courier New',monospace;font-size:13px;font-weight:700;color:#DC2626;margin-bottom:6px">advertVettingReject</div>
-          <div style="font-size:12px;color:#627180;line-height:1.55">Rejects one or more adverts with a vettingRejectedReason. Accepts array of advert IDs — allows bulk rejection in a single call.</div>
+          <div style="font-size:12px;color:#627180;line-height:1.55">Rejects one or more adverts with a vettingRejectedReason. Accepts array of advert IDs - allows bulk rejection in a single call.</div>
         </div>
       </div>`
     },
@@ -896,17 +1135,17 @@ const DECK = {
       label: "Topic 4",
       number: "04",
       headline: "Governance and **Catalog Rules**",
-      sub: "What Marketplacer validates vs. what Akeneo owns — avoiding duplication"
+      sub: "What Marketplacer validates vs. what Akeneo owns - avoiding duplication"
     },
     {
       type: "table",
       eyebrow: "Governance Model",
-      headline: "**Responsibility** — Marketplacer vs. Akeneo vs. commercetools",
+      headline: "**Responsibility** - Marketplacer vs. Akeneo vs. commercetools",
       columns: ["Responsibility", "Marketplacer", "Akeneo", "commercetools"],
       rows: [
         ["Taxonomy and category structure", "✓", "~", false],
         ["Structural field validation (Catalog Rules)", "✓", false, false],
-        ["Advert Vetting — approve / reject", "~", "✓", false],
+        ["Advert Vetting - approve / reject", "~", "✓", false],
         ["Content enrichment and SEO", false, "✓", false],
         ["Marketplace commission logic", "✓", false, false],
         ["Product sync to storefront", false, false, "✓"],
@@ -917,14 +1156,13 @@ const DECK = {
     {
       type: "two-col",
       eyebrow: "Catalog Rules Strategy",
-      headline: "Rules: **Marketplacer** owns structure, **Akeneo** owns content",
-      body: "The guiding principle is to avoid duplicate validation that causes conflicting rejections and Maker confusion. Each system owns a distinct layer.",
+      headline: "**Marketplacer** owns structure, **Akeneo** owns content",
+      body: "Avoid duplicate validation that causes conflicting rejections and Maker confusion. Each system owns a distinct layer.",
       points: [
         "Marketplacer Catalog Rules: structural checks (required fields, data types, image count, format)",
         "Akeneo validation: content quality (copy length, SEO metadata, localisation, editorial standards)",
         "Do not re-validate the same attributes in both systems",
-        "Maker-facing rejection messages must be clear about which system rejected and why",
-        "Akeneo must call advertVettingApprove or advertVettingReject — not just update its own records"
+        "Akeneo must call advertVettingApprove or advertVettingReject - not just update its own records"
       ],
       visual: `<div style="width:100%;max-width:380px;font-family:Manrope,sans-serif">
         <div style="background:white;border:1px solid #DDE5EC;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(7,14,20,0.08)">
@@ -935,7 +1173,7 @@ const DECK = {
             Minimum image count and format<br/>
             Price format and range validation
           </div>
-          <div style="background:#D7FFF9;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#009E8A">Akeneo — Vetting Validation</div>
+          <div style="background:#D7FFF9;padding:10px 16px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#009E8A">Akeneo - Vetting Validation</div>
           <div style="padding:12px 16px;font-size:12px;color:#627180;line-height:1.6">
             Title and description quality<br/>
             SEO metadata completeness<br/>
@@ -1674,7 +1912,7 @@ const MKT = (() => {
             <h2 class="s-h2" style="color:${C.dark}">${headline(s.headline || '').replace('<div class="">','').replace('</div>','')}</h2>
           </div>
           <div style="flex:1;overflow:hidden">
-            <table class="s-table"><${thead}${tbody}</table>
+            <table class="s-table">${thead}${tbody}</table>
           </div>
         </div>
         ${footer(i+1, false, deck.confidential !== false)}`;
@@ -1992,7 +2230,7 @@ const MKT = (() => {
         ? `<img src="${esc(s.poster)}" alt="${esc(s.alt||'Video thumbnail')}" style="width:100%;height:100%;object-fit:cover;display:block">`
         : `<div style="width:100%;height:100%;background:linear-gradient(135deg,${C.primaryDark} 0%,${C.primary} 60%,${C.mid} 100%)"></div>`;
 
-      // Play button — links to the video URL in a new tab if URL is set
+      // Play button - links to the video URL in a new tab if URL is set
       const playBtn = url
         ? `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer" title="Open video" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:2">
             <div style="display:flex;flex-direction:column;align-items:center;gap:16px">
