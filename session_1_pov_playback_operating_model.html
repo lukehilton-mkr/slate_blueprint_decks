@@ -757,6 +757,23 @@ const DECK = {
             <div style="font-size:11px;opacity:0.65;line-height:1.55">Financial management, reconciliation, Maker payout disbursement</div>
           </div>
         </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
+          <div style="background:#2D3A1F;border-radius:12px;padding:18px 16px;color:white">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Tax</div>
+            <div style="font-size:17px;font-weight:800;margin-bottom:6px">Avalara</div>
+            <div style="font-size:11px;opacity:0.65;line-height:1.55">Real-time tax calculation at checkout, jurisdiction rules, compliance</div>
+          </div>
+          <div style="background:#3D2A1F;border-radius:12px;padding:18px 16px;color:white">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Returns</div>
+            <div style="font-size:17px;font-weight:800;margin-bottom:6px">???</div>
+            <div style="font-size:11px;opacity:0.65;line-height:1.55">Returns management platform, RMA process, carrier integration — to confirm</div>
+          </div>
+          <div style="background:#1F2A3D;border-radius:12px;padding:18px 16px;color:white">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">BI / Reporting</div>
+            <div style="font-size:17px;font-weight:800;margin-bottom:6px">???</div>
+            <div style="font-size:11px;opacity:0.65;line-height:1.55">Analytics and reporting platform — to confirm</div>
+          </div>
+        </div>
         <div style="background:#D7FFF9;border:2px solid #00CFB4;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px">
           <div style="background:#00CFB4;border-radius:8px;padding:8px 12px;flex-shrink:0">
             <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#070E14;margin-bottom:2px">Marketplace</div>
@@ -1002,6 +1019,49 @@ const DECK = {
       </div>`
     },
     {
+      type: "two-col",
+      eyebrow: "Workflow Review — Reverse Logistics",
+      headline: "Returns and **Refunds** Today",
+      body: "Before we design the future state, we need to understand how returns and refunds work in the current Slate operation — the systems, the process, and who owns each step.",
+      points: [
+        "How do returns and refunds work today — what is the end-to-end process?",
+        "What systems are used to manage returns? e.g. Salesforce Service Cloud, Fluent, commercetools",
+        "Where do customers physically send returns — Slate warehouse, third-party logistics, or direct to supplier?",
+        "Who QAs returned items — Slate ops team, the supplier, or a 3PL?",
+        "What carrier is used for return shipments — customer-arranged or Slate-provided label?",
+        "How is the refund issued — via Adyen back to original payment method, store credit, or other?"
+      ],
+      visual: `<div style="width:100%;max-width:360px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:8px">
+        <div style="background:white;border:1px solid #DDE5EC;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(7,14,20,0.05)">
+          <div style="background:#005C71;padding:10px 16px">
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Key systems to confirm</div>
+          </div>
+          <div style="padding:12px 16px;display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font-size:12px;font-weight:700;color:#070E14">Return initiation</div>
+              <div style="background:#F4F8FB;border:1px solid #DDE5EC;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;color:#627180">System TBC</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font-size:12px;font-weight:700;color:#070E14">Return logistics</div>
+              <div style="background:#F4F8FB;border:1px solid #DDE5EC;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;color:#627180">Carrier TBC</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font-size:12px;font-weight:700;color:#070E14">QA and receiving</div>
+              <div style="background:#F4F8FB;border:1px solid #DDE5EC;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;color:#627180">Owner TBC</div>
+            </div>
+            <div style="display:flex;align-items:center;justify-content:space-between">
+              <div style="font-size:12px;font-weight:700;color:#070E14">Refund processing</div>
+              <div style="background:#F4F8FB;border:1px solid #DDE5EC;border-radius:100px;padding:2px 10px;font-size:10px;font-weight:700;color:#627180">Adyen / TBC</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#FFFBEB;border:1px solid #B45309;border-radius:10px;padding:12px 14px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#B45309;margin-bottom:4px">Why this matters</div>
+          <div style="font-size:11px;color:#070E14;line-height:1.6">When Makers fulfil orders, returns become more complex — the customer may have received a product directly from a Maker who has no returns infrastructure. The current 1P returns model is the baseline we design the 3P model from.</div>
+        </div>
+      </div>`
+    },
+    {
       type: "section",
       label: "Topic 3",
       number: "03",
@@ -1122,7 +1182,7 @@ const DECK = {
             <div style="font-size:22px;font-weight:800;color:white;line-height:1.2">Identified<br>Gaps</div>
           </div>
           <div style="padding:20px;flex:1;display:flex;align-items:center">
-            <div style="font-size:12px;color:#627180;line-height:1.7">What we still need to define before we can design — open questions, missing decisions, and areas where the current state isn't yet clear.</div>
+            <div style="font-size:12px;color:#627180;line-height:1.7">What we still need to define before we can design — open questions, missing decisions, and areas where the current state isn't yet clear.</div><div style="font-size:12px;color:#627180;line-height:1.7;margin-top:6px;font-style:italic">Including: how does service work today?</div>
           </div>
         </div>
 
