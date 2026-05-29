@@ -909,98 +909,63 @@ const DECK = {
       headline: "Webhook-Driven **Vetting Flow** - System Sequence",
       body: `<div style="font-family:Manrope,sans-serif;margin-top:4px">
         <div style="overflow-x:auto;border-radius:12px;border:1px solid #DDE5EC;background:#FAFCFE">
-          <svg viewBox="0 0 980 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:860px;display:block;font-family:Manrope,sans-serif">
-            <!-- Participant boxes -->
-            <rect x="20" y="10" width="140" height="36" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
-            <text x="90" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#005C71">Maker (Seller)</text>
-            <rect x="280" y="10" width="140" height="36" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
-            <text x="350" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#005C71">Marketplacer</text>
-            <rect x="560" y="10" width="170" height="36" rx="8" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/>
-            <text x="645" y="28" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">Operator System</text>
-            <text x="645" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">(Akeneo)</text>
-            <rect x="830" y="10" width="130" height="36" rx="8" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
-            <text x="895" y="33" text-anchor="middle" font-size="12" font-weight="700" fill="#005C71">commercetools</text>
-
-            <!-- Lifelines -->
-            <line x1="90" y1="46" x2="90" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
-            <line x1="350" y1="46" x2="350" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
-            <line x1="645" y1="52" x2="645" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
-            <line x1="895" y1="46" x2="895" y2="462" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
-
-            <!-- Step 1: Maker creates product -->
-            <line x1="90" y1="72" x2="344" y2="72" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
-            <text x="215" y="68" text-anchor="middle" font-size="10" fill="#070E14">Create and enrich product</text>
-            <!-- requiresVetting note -->
-            <rect x="278" y="78" width="144" height="22" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
-            <text x="350" y="93" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">requiresVetting = true</text>
-
-            <!-- Step 2: MP emits webhook -->
-            <line x1="350" y1="112" x2="639" y2="112" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
-            <text x="495" y="108" text-anchor="middle" font-size="10" fill="#070E14">Emit webhook: advert/update</text>
-            <!-- Payload note -->
-            <rect x="80" y="118" width="530" height="20" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
-            <text x="345" y="132" text-anchor="middle" font-size="9" font-weight="600" fill="#92400E">Payload: id, legacyId, vettingRejected, requiresVetting, requiresVettingAt, vetted, vettingRejectedReason</text>
-
-            <!-- Step 3: Akeneo validates -->
-            <path d="M645 148 Q665 148 665 160 Q665 172 645 172" stroke="#070E14" stroke-width="1.5" fill="none" marker-end="url(#arrowDark)"/>
-            <text x="686" y="164" font-size="10" fill="#070E14">Validate</text>
-
-            <!-- ALT box -->
-            <rect x="22" y="180" width="950" height="268" rx="6" fill="none" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="5,3"/>
-            <rect x="22" y="180" width="36" height="18" rx="3" fill="#DDE5EC"/>
-            <text x="40" y="193" text-anchor="middle" font-size="10" font-weight="700" fill="#005C71">alt</text>
-            <text x="64" y="193" font-size="10" fill="#627180">[Product data is VALID]</text>
-
-            <!-- VALID path -->
-            <line x1="645" y1="208" x2="356" y2="208" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-            <text x="495" y="204" text-anchor="middle" font-size="10" fill="#059669">advertVettingApprove mutation</text>
-            <rect x="278" y="214" width="144" height="22" rx="4" fill="#DCFCE7" stroke="#059669" stroke-width="1"/>
-            <text x="350" y="229" text-anchor="middle" font-size="10" font-weight="700" fill="#166534">vetted = true · requiresVetting = false</text>
-            <line x1="350" y1="244" x2="889" y2="244" stroke="#059669" stroke-width="1.5" marker-end="url(#arrowGreen)"/>
-            <text x="615" y="240" text-anchor="middle" font-size="10" fill="#059669">Sync product to catalogue</text>
-            <line x1="895" y1="258" x2="96" y2="258" stroke="#059669" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowGreen)"/>
-            <text x="495" y="254" text-anchor="middle" font-size="10" fill="#059669">Product is live</text>
-
-            <!-- Divider -->
-            <line x1="22" y1="272" x2="972" y2="272" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
-            <text x="64" y="284" font-size="10" fill="#627180">[Product data is INVALID]</text>
-
-            <!-- INVALID path -->
-            <line x1="645" y1="294" x2="356" y2="294" stroke="#DC2626" stroke-width="1.5" marker-end="url(#arrowRed)"/>
-            <text x="495" y="290" text-anchor="middle" font-size="10" fill="#DC2626">advertVettingReject (with vettingRejectedReason)</text>
-            <rect x="256" y="300" width="188" height="22" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
-            <text x="350" y="315" text-anchor="middle" font-size="10" font-weight="700" fill="#991B1B">vettingRejected = true · requiresVetting = false</text>
-            <line x1="350" y1="330" x2="96" y2="330" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#arrowRed)"/>
-            <text x="215" y="326" text-anchor="middle" font-size="10" fill="#DC2626">Notify: rejection + reason</text>
-            <line x1="90" y1="344" x2="344" y2="344" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
-            <text x="215" y="340" text-anchor="middle" font-size="10" fill="#070E14">Rectify advert (advertUpsert)</text>
-            <line x1="90" y1="360" x2="344" y2="360" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
-            <text x="215" y="356" text-anchor="middle" font-size="10" fill="#070E14">Resubmit (advertVettingResubmit)</text>
-            <rect x="278" y="366" width="144" height="22" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
-            <text x="350" y="381" text-anchor="middle" font-size="10" font-weight="700" fill="#92400E">requiresVetting = true again</text>
-            <line x1="350" y1="396" x2="639" y2="396" stroke="#070E14" stroke-width="1.5" marker-end="url(#arrowDark)"/>
-            <text x="495" y="392" text-anchor="middle" font-size="10" fill="#070E14">Emit webhook: advert/update</text>
-
-            <!-- Bottom participant boxes -->
-            <rect x="20" y="446" width="140" height="28" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
-            <text x="90" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">Maker (Seller)</text>
-            <rect x="280" y="446" width="140" height="28" rx="8" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
-            <text x="350" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">Marketplacer</text>
-            <rect x="560" y="446" width="170" height="28" rx="8" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/>
-            <text x="645" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#B45309">Operator System (Akeneo)</text>
-            <rect x="830" y="446" width="130" height="28" rx="8" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
-            <text x="895" y="465" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">commercetools</text>
-
+          <svg viewBox="0 0 980 400" xmlns="http://www.w3.org/2000/svg" style="width:100%;min-width:860px;display:block;font-family:Manrope,sans-serif">
+            <rect x="20" y="8" width="140" height="30" rx="7" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="90" y="28" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">Maker (Seller)</text>
+            <rect x="280" y="8" width="140" height="30" rx="7" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
+            <text x="350" y="28" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">Marketplacer</text>
+            <rect x="555" y="8" width="170" height="30" rx="7" fill="#FFFBEB" stroke="#B45309" stroke-width="1.5"/>
+            <text x="640" y="19" text-anchor="middle" font-size="10" font-weight="700" fill="#B45309">Operator System</text>
+            <text x="640" y="33" text-anchor="middle" font-size="10" font-weight="700" fill="#B45309">(Akeneo)</text>
+            <rect x="832" y="8" width="128" height="30" rx="7" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="896" y="28" text-anchor="middle" font-size="11" font-weight="700" fill="#005C71">commercetools</text>
+            <line x1="90"  y1="38" x2="90"  y2="392" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="350" y1="38" x2="350" y2="392" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="640" y1="38" x2="640" y2="392" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="896" y1="38" x2="896" y2="392" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <line x1="90" y1="56" x2="344" y2="56" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD)"/>
+            <text x="215" y="52" text-anchor="middle" font-size="10" fill="#070E14">Create and enrich product</text>
+            <rect x="278" y="62" width="144" height="16" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+            <text x="350" y="74" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">requiresVetting = true</text>
+            <line x1="350" y1="90" x2="634" y2="90" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD)"/>
+            <text x="490" y="86" text-anchor="middle" font-size="10" fill="#070E14">Emit webhook: advert/update</text>
+            <rect x="75" y="96" width="530" height="15" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+            <text x="340" y="107" text-anchor="middle" font-size="8.5" font-weight="600" fill="#92400E">Payload: id, legacyId, vettingRejected, requiresVetting, requiresVettingAt, vetted, vettingRejectedReason</text>
+            <path d="M640 120 Q656 120 656 130 Q656 140 640 140" stroke="#070E14" stroke-width="1.5" fill="none" marker-end="url(#aD)"/>
+            <text x="672" y="134" font-size="10" fill="#070E14">Validate</text>
+            <rect x="22" y="150" width="950" height="230" rx="6" fill="none" stroke="#DDE5EC" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <rect x="22" y="150" width="32" height="15" rx="3" fill="#DDE5EC"/>
+            <text x="38" y="161" text-anchor="middle" font-size="9" font-weight="700" fill="#005C71">alt</text>
+            <text x="60" y="161" font-size="9" fill="#627180">[Product data is VALID]</text>
+            <line x1="640" y1="174" x2="356" y2="174" stroke="#059669" stroke-width="1.5" marker-end="url(#aG)"/>
+            <text x="490" y="170" text-anchor="middle" font-size="10" fill="#059669">advertVettingApprove mutation</text>
+            <rect x="200" y="179" width="300" height="17" rx="4" fill="#DCFCE7" stroke="#059669" stroke-width="1"/>
+            <text x="350" y="191" text-anchor="middle" font-size="8.5" font-weight="700" fill="#166534">vetted = true · requiresVetting = false</text>
+            <line x1="350" y1="204" x2="889" y2="204" stroke="#059669" stroke-width="1.5" marker-end="url(#aG)"/>
+            <text x="610" y="200" text-anchor="middle" font-size="10" fill="#059669">Sync to catalogue - Product is live</text>
+            <line x1="22" y1="218" x2="972" y2="218" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
+            <text x="60" y="228" font-size="9" fill="#627180">[Product data is INVALID]</text>
+            <line x1="640" y1="242" x2="356" y2="242" stroke="#DC2626" stroke-width="1.5" marker-end="url(#aR)"/>
+            <text x="490" y="238" text-anchor="middle" font-size="10" fill="#DC2626">advertVettingReject (with vettingRejectedReason)</text>
+            <rect x="155" y="248" width="390" height="17" rx="4" fill="#FEE2E2" stroke="#DC2626" stroke-width="1"/>
+            <text x="350" y="260" text-anchor="middle" font-size="8.5" font-weight="700" fill="#991B1B">vettingRejected = true · requiresVetting = false</text>
+            <line x1="350" y1="280" x2="96" y2="280" stroke="#DC2626" stroke-width="1.5" stroke-dasharray="4,2" marker-end="url(#aR)"/>
+            <text x="215" y="276" text-anchor="middle" font-size="10" fill="#DC2626">Notify: rejection + reason</text>
+            <line x1="90" y1="298" x2="344" y2="298" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD)"/>
+            <text x="215" y="294" text-anchor="middle" font-size="10" fill="#070E14">Rectify (advertUpsert) + Resubmit (advertVettingResubmit)</text>
+            <rect x="240" y="308" width="220" height="15" rx="4" fill="#FEF9C3" stroke="#CA8A04" stroke-width="1"/>
+            <text x="350" y="320" text-anchor="middle" font-size="9" font-weight="700" fill="#92400E">requiresVetting = true again</text>
+            <line x1="350" y1="334" x2="634" y2="334" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD)"/>
+            <text x="490" y="330" text-anchor="middle" font-size="10" fill="#070E14">Emit webhook: advert/update</text>
             <defs>
-              <marker id="arrowDark" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#070E14"/></marker>
-              <marker id="arrowGreen" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#059669"/></marker>
-              <marker id="arrowRed" markerWidth="7" markerHeight="7" refX="4" refY="3.5" orient="auto"><path d="M0,0 L7,3.5 L0,7 Z" fill="#DC2626"/></marker>
+              <marker id="aD" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#070E14"/></marker>
+              <marker id="aG" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#059669"/></marker>
+              <marker id="aR" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#DC2626"/></marker>
             </defs>
           </svg>
         </div>
-        <div style="margin-top:8px;background:#F4F8FB;border-radius:8px;padding:8px 14px;display:flex;align-items:center;justify-content:space-between">
-          <div style="font-size:11px;color:#627180">Green = valid path &nbsp;·&nbsp; Red = rejection path &nbsp;·&nbsp; Yellow notes = state changes</div>
-          <div style="font-size:11px;color:#627180;font-style:italic">🍺 Buy me a beer and I'll share the Mermaid UML</div>
+        <div style="margin-top:5px;background:#F4F8FB;border-radius:6px;padding:5px 12px">
+          <div style="font-size:10px;color:#627180">Green = valid path &nbsp;·&nbsp; Red = rejection path &nbsp;·&nbsp; Yellow = state changes</div>
         </div>
       </div>`
     },
