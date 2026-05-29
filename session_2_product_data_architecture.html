@@ -2093,10 +2093,27 @@ const MKT = (() => {
     const scaler = document.getElementById('mkt-scaler');
     const stage  = document.getElementById('mkt-stage');
     if (!scaler || !stage) return;
-    const sw = stage.clientWidth  - 24;
-    const sh = stage.clientHeight - 24;
+    const isFS = !!document.fullscreenElement;
+    const sw = isFS ? window.screen.width  : stage.clientWidth  - 24;
+    const sh = isFS ? window.screen.height : stage.clientHeight - 24;
     const scale = Math.min(sw / 1280, sh / 720);
     scaler.style.transform = `scale(${scale})`;
+    const topBar  = document.querySelector('.top-bar');
+    const thumbs  = document.getElementById('mkt-thumbs');
+    const keyHint = document.querySelector('.key-hint');
+    if (isFS) {
+      if (topBar)  topBar.style.display  = 'none';
+      if (thumbs)  thumbs.style.display  = 'none';
+      if (keyHint) keyHint.style.display = 'none';
+      stage.style.top    = '0';
+      stage.style.bottom = '0';
+    } else {
+      if (topBar)  topBar.style.display  = '';
+      if (thumbs)  thumbs.style.display  = '';
+      if (keyHint) keyHint.style.display = '';
+      stage.style.top    = '';
+      stage.style.bottom = '';
+    }
   }
 
   function buildThumbs(frameEl) {
@@ -2178,11 +2195,16 @@ const MKT = (() => {
   }
 
   function enterFullscreen() {
-    const el = document.getElementById('mkt-frame');
-    if (!el) return;
-    if (el.requestFullscreen) el.requestFullscreen();
-    else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    const el = document.documentElement;
+    if (document.fullscreenElement) {
+      document.exitFullscreen && document.exitFullscreen();
+    } else {
+      if (el.requestFullscreen) el.requestFullscreen();
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+    }
   }
+  document.addEventListener('fullscreenchange', rescale);
+  document.addEventListener('webkitfullscreenchange', rescale);
 
   return { init, goTo, C, ICONS };
 })();
