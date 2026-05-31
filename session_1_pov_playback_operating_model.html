@@ -725,61 +725,78 @@ const DECK = {
       eyebrow: "Slate System Architecture",
       headline: "Confirmed **System Map**",
       body: `<div style="margin-top:12px;font-family:Manrope,sans-serif">
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">
-          <div style="background:#005C71;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Ecommerce</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">commercetools</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">Cart, checkout, order creation, product catalogue, pricing</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px">
+          <div style="background:#005C71;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">Ecommerce</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">commercetools</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Customer-facing store. Products flow in from Akeneo. Orders flow out to Fluent.</div>
           </div>
-          <div style="background:#1E2D3D;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">PIM</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">Akeneo</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">Product enrichment, content approval, SEO, localisation</div>
+          <div style="background:#1E2D3D;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">PIM</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Akeneo</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Product enrichment hub. Assets auto-associated via Brandfolder. Receives products from NetSuite.</div>
           </div>
-          <div style="background:#003D4E;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Customer Service</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">Salesforce Service Cloud</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">Case management, agent workflows, cancellations, returns</div>
+          <div style="background:#3D1A00;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">PLM</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Windchill</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Origin for vehicle accessories and service parts. Distinct from apparel/merch flow.</div>
           </div>
-          <div style="background:#0A3D2E;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Payments</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">Adyen</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">PSP - authorisation, settlement, refunds, Maker payouts</div>
-          </div>
-          <div style="background:#2D1B4E;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Order Management</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">Fluent Commerce</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">OMS - order orchestration, decomposition, fulfilment routing, shipment status</div>
-          </div>
-          <div style="background:#3D1F0A;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">ERP</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">NetSuite</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">Financial management, reconciliation, Maker payout disbursement</div>
+          <div style="background:#1A2D1A;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">Digital Assets</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Brandfolder</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">System of record for digital assets. Auto-associates to SKUs in Akeneo for PDPs.</div>
           </div>
         </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:12px">
-          <div style="background:#2D3A1F;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Tax</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">Avalara</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">Real-time tax calculation at checkout, jurisdiction rules, compliance</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px">
+          <div style="background:#2D1B4E;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">OMS</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Fluent Commerce</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Order processing, decomposition (1P/3P), inventory truth across 3PLs. Triggers emails via SFMC.</div>
           </div>
-          <div style="background:#3D2A1F;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">Returns</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">???</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">Returns management platform, RMA process, carrier integration - to confirm</div>
+          <div style="background:#1A2D2D;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">3PL Integrator</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">ShipBob</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Physical returns receipt. Connects to SMLXL for apparel/merch. Sends shipment events to Fluent.</div>
           </div>
-          <div style="background:#1F2A3D;border-radius:12px;padding:18px 16px;color:white">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:6px">BI / Reporting</div>
-            <div style="font-size:17px;font-weight:800;margin-bottom:6px">???</div>
-            <div style="font-size:11px;opacity:0.65;line-height:1.55">Analytics and reporting platform - to confirm</div>
+          <div style="background:#0A3D2E;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">Payments</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Adyen</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Payment processor. Funds captured on shipment signal. Stripe added later for vehicle sales.</div>
+          </div>
+          <div style="background:#2D3A1F;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">Tax</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Avalara</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Tax calculation. Integrates with commercetools, Fluent, and Salesforce Service Cloud.</div>
           </div>
         </div>
-        <div style="background:#D7FFF9;border:2px solid #00CFB4;border-radius:12px;padding:14px 18px;display:flex;align-items:center;gap:14px">
-          <div style="background:#00CFB4;border-radius:8px;padding:8px 12px;flex-shrink:0">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#070E14;margin-bottom:2px">Marketplace</div>
-            <div style="font-size:15px;font-weight:800;color:#070E14">Marketplacer</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:8px">
+          <div style="background:#003D4E;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">Customer Service</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Salesforce SC</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Agent workflows, returns, refunds, cancellations. Future: RMA + return labels via Fluent/ShipBob.</div>
           </div>
-          <div style="font-size:12px;color:#005C71;line-height:1.6">Maker (Seller) portal, product induction, Advert Vetting, catalog rules, commission management, order routing to Makers, fulfilment tracking, payout triggers</div>
+          <div style="background:#003D4E;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">Marketing Comms</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Salesforce MC</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">All transactional messaging. Order confirmations and shipment notifications triggered by Fluent.</div>
+          </div>
+          <div style="background:#3D1F0A;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">ERP</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">NetSuite</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Products instantiated here first, then flow to Akeneo. Financial management and reconciliation.</div>
+          </div>
+          <div style="background:#1F2A3D;border-radius:10px;padding:12px 14px;color:white">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:0.55;margin-bottom:4px">BI / Reporting</div>
+            <div style="font-size:14px;font-weight:800;margin-bottom:4px">Tableau / Redshift</div>
+            <div style="font-size:10px;opacity:0.65;line-height:1.5">Redshift data warehouse powers Tableau BI. DataDog for operational alerting.</div>
+          </div>
+        </div>
+        <div style="background:#D7FFF9;border:2px solid #00CFB4;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:12px">
+          <div style="background:#00CFB4;border-radius:8px;padding:6px 12px;flex-shrink:0">
+            <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#070E14;margin-bottom:1px">Future State</div>
+            <div style="font-size:14px;font-weight:800;color:#070E14">Marketplacer</div>
+          </div>
+          <div style="font-size:11px;color:#005C71;line-height:1.55">Maker portal, product induction, Advert Vetting, catalog rules, commission management, 3P order routing, fulfilment tracking, payout triggers</div>
         </div>
       </div>`
     },
@@ -801,24 +818,24 @@ const DECK = {
               <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#627180;text-align:center;writing-mode:horizontal-tb">Product flow</div>
             </div>
             <div style="flex:1;display:flex;align-items:center;gap:0;background:#F4F8FB;border-radius:0 6px 6px 0;padding:6px 10px">
-              <div style="flex:1;background:#D7FFF9;border:1.5px solid #00CFB4;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:#005C71">Maker</div>
-                <div style="font-size:9px;color:#627180">Creates product</div>
+              <div style="flex:1;background:#3D1F0A;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">NetSuite</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Product origin (ERP)</div>
               </div>
               <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1.3;background:#005C71;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">Marketplacer</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Vetting + webhook</div>
+              <div style="flex:1.2;background:#1E2D3D;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">Akeneo + Brandfolder</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Enrichment + assets</div>
               </div>
               <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1;background:#1E2D3D;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">Akeneo</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Enrichment + approval</div>
-              </div>
-              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1;background:#003D4E;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">commercetools</div>
+              <div style="flex:1;background:#005C71;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">commercetools</div>
                 <div style="font-size:9px;color:rgba(255,255,255,0.6)">Storefront catalogue</div>
+              </div>
+              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
+              <div style="flex:1;background:#D7FFF9;border:1.5px dashed #00CFB4;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:#005C71">+ Marketplacer</div>
+                <div style="font-size:9px;color:#627180">Future state</div>
               </div>
             </div>
           </div>
@@ -829,25 +846,28 @@ const DECK = {
             </div>
             <div style="flex:1;display:flex;align-items:center;gap:0;background:#F4F8FB;border-radius:0 6px 6px 0;padding:6px 10px">
               <div style="flex:1;background:#DBE9EE;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:#005C71">Customer</div>
+                <div style="flex:1;display:flex;align-items:center;gap:0;background:#F4F8FB;border-radius:0 6px 6px 0;padding:6px 10px">
+              <div style="flex:1;background:#DBE9EE;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:#005C71">Customer</div>
                 <div style="font-size:9px;color:#627180">Places order</div>
               </div>
               <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1;background:#003D4E;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">commercetools</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Order + Adyen</div>
-              </div>
-              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1.3;background:#2D1B4E;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">Fluent (OMS)</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Decompose 1P vs 3P</div>
-              </div>
-              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
               <div style="flex:1;background:#005C71;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">Marketplacer</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.6)">3P to Maker</div>
+                <div style="font-size:10px;font-weight:800;color:white">commercetools + Adyen</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Checkout + payment</div>
+              </div>
+              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
+              <div style="flex:1.2;background:#2D1B4E;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">Fluent Commerce</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6)">OMS - decomposition</div>
+              </div>
+              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
+              <div style="flex:1;background:#1A2D2D;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">ShipBob / SMLXL</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6)">3PL fulfilment</div>
               </div>
             </div>
+
           </div>
 
           <div style="display:flex;align-items:stretch;gap:0">
@@ -856,25 +876,28 @@ const DECK = {
             </div>
             <div style="flex:1;display:flex;align-items:center;gap:0;background:#F4F8FB;border-radius:0 6px 6px 0;padding:6px 10px">
               <div style="flex:1;background:#0A3D2E;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">Adyen</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Settlement (T+1)</div>
+                <div style="flex:1;display:flex;align-items:center;gap:0;background:#F4F8FB;border-radius:0 6px 6px 0;padding:6px 10px">
+              <div style="flex:1;background:#0A3D2E;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">Adyen</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Captures on shipment</div>
               </div>
               <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1.3;background:#3D1F0A;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">NetSuite (ERP)</div>
+              <div style="flex:1;background:#2D3A1F;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">Avalara</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Tax calculation</div>
+              </div>
+              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
+              <div style="flex:1.2;background:#3D1F0A;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:white">NetSuite (ERP)</div>
                 <div style="font-size:9px;color:rgba(255,255,255,0.6)">Reconciliation</div>
               </div>
               <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1;background:#005C71;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:white">Marketplacer</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.6)">Payout trigger</div>
-              </div>
-              <div style="padding:0 5px;color:#00CFB4;font-size:14px">→</div>
-              <div style="flex:1;background:#D7FFF9;border:1.5px solid #00CFB4;border-radius:8px;padding:8px 10px;text-align:center">
-                <div style="font-size:11px;font-weight:800;color:#005C71">Maker</div>
-                <div style="font-size:9px;color:#627180">Payout received</div>
+              <div style="flex:1;background:#D7FFF9;border:1.5px dashed #00CFB4;border-radius:8px;padding:8px 10px;text-align:center">
+                <div style="font-size:10px;font-weight:800;color:#005C71">+ Marketplacer</div>
+                <div style="font-size:9px;color:#627180">Future: Maker payouts</div>
               </div>
             </div>
+
           </div>
 
         </div>
@@ -882,15 +905,15 @@ const DECK = {
         <div style="margin-top:10px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
           <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:6px">
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#005C71;background:#DBE9EE;border-radius:4px;padding:2px 6px;flex-shrink:0">Session 2</div>
-            <div style="font-size:10px;color:#627180">Validate product + vetting flow</div>
+            <div style="font-size:10px;color:#627180">Product flow: NetSuite - Akeneo - CT + Marketplacer (future)</div>
           </div>
           <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:6px">
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#005C71;background:#DBE9EE;border-radius:4px;padding:2px 6px;flex-shrink:0">Session 3</div>
-            <div style="font-size:10px;color:#627180">Confirm Fluent order decomposition</div>
+            <div style="font-size:10px;color:#627180">Order flow: Fluent decomposition + ShipBob 3PL</div>
           </div>
           <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:8px 12px;display:flex;align-items:center;gap:6px">
             <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#005C71;background:#DBE9EE;border-radius:4px;padding:2px 6px;flex-shrink:0">Session 5</div>
-            <div style="font-size:10px;color:#627180">Agree payout and reconciliation model</div>
+            <div style="font-size:10px;color:#627180">Financial flow: Adyen capture - Avalara - NetSuite</div>
           </div>
         </div>
       </div>`
@@ -1905,7 +1928,7 @@ const MKT = (() => {
             <h2 class="s-h2" style="color:${C.dark}">${headline(s.headline || '').replace('<div class="">','').replace('</div>','')}</h2>
           </div>
           <div style="flex:1;overflow:hidden">
-            <table class="s-table"><${thead}${tbody}</table>
+            <table class="s-table">${thead}${tbody}</table>
           </div>
         </div>
         ${footer(i+1, false, deck.confidential !== false)}`;
