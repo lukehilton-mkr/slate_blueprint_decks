@@ -1093,6 +1093,21 @@ const DECK = {
             <div style="font-size:11px;color:#627180;margin-top:3px">Does Akeneo call the Operator API automatically, or does a human trigger it?</div>
           </div>
         </div>
+        <div style="margin-top:10px;background:#FFFBEB;border:1.5px solid #B45309;border-radius:10px;padding:12px 16px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#B45309;margin-bottom:6px">Discussion point - Akeneo dual inbound flows</div>
+          <div style="font-size:12px;color:#070E14;line-height:1.6">Akeneo already receives <strong>1P products from NetSuite</strong> as part of the existing enrichment workflow. When Marketplacer goes live, Akeneo will also begin receiving <strong>Maker (3P) products via webhook</strong> from Marketplacer. These are two distinct inbound channels that need to coexist.</div>
+          <div style="margin-top:8px;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <div style="background:white;border-radius:6px;padding:8px 12px;border:1px solid #DDE5EC">
+              <div style="font-size:10px;font-weight:700;color:#005C71;margin-bottom:3px">Current 1P flow</div>
+              <div style="font-size:11px;color:#627180;line-height:1.5">NetSuite → Akeneo → commercetools<br/>Internal team enrichment workflow</div>
+            </div>
+            <div style="background:white;border-radius:6px;padding:8px 12px;border:1px solid #DDE5EC">
+              <div style="font-size:10px;font-weight:700;color:#00CFB4;margin-bottom:3px">Future 3P flow (Maker)</div>
+              <div style="font-size:11px;color:#627180;line-height:1.5">Marketplacer webhook → Akeneo → commercetools<br/>Maker product enrichment + vetting</div>
+            </div>
+          </div>
+          <div style="margin-top:8px;font-size:11px;color:#92400E;font-weight:600">Key question: does Akeneo handle Maker products in a separate project/channel, or does the same workflow apply to both?</div>
+        </div>
       </div>`
     },
     {
