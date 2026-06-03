@@ -622,6 +622,7 @@ const DECK = {
       headline: "2 down, **5 to go.** Warm down! 🧘",
       body: `<div style="margin-top:8px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:4px">
 
+
         <div style="display:flex;align-items:center;background:#F4F8FB;border:1px solid #DDE5EC;border-radius:8px;padding:7px 14px;gap:12px;opacity:0.6">
           <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:#059669;border-radius:6px;width:36px;height:36px;flex-shrink:0">
             <div style="font-size:16px;color:white;font-weight:800;line-height:1">✓</div>
@@ -739,15 +740,7 @@ const DECK = {
           </div>
         </div>
 
-        <div style="background:#FFFBEB;border:1.5px solid #B45309;border-radius:10px;padding:12px 16px">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#B45309;margin-bottom:8px">Open gaps - to resolve in this session</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-            <div style="display:flex;align-items:flex-start;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">How are partial captures handled in Adyen when only one leg of a split order ships first?</div></div>
-            <div style="display:flex;align-items:flex-start;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Does Fluent send a single or per-seller capture signal to Adyen?</div></div>
-            <div style="display:flex;align-items:flex-start;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">How is Avalara tax apportioned and committed across decomposed fulfilment orders?</div></div>
-            <div style="display:flex;align-items:flex-start;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">What happens to the pre-auth on the 3P leg if a Maker never ships?</div></div>
-          </div>
-        </div>
+
 
       </div>`
     },
@@ -883,6 +876,153 @@ const DECK = {
       </div>`
     },
     {
+      type: "blank",
+      eyebrow: "Marketplacer Shipment Model",
+      headline: "How **Shipments** Work",
+      body: `<div style="font-family:Manrope,sans-serif;margin-top:8px;display:grid;grid-template-columns:1fr 1.6fr;gap:20px;align-items:start">
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:12px;color:#627180;line-height:1.6">A <strong style="color:#070E14">Shipment</strong> represents the full or partial dispatch of Line Items within an Invoice. A single Invoice can produce one or more Shipments depending on how the Maker fulfils the order.</div>
+
+          <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
+            <div style="background:#005C71;padding:8px 14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Shipment configurations</div></div>
+            <div style="padding:10px 14px;display:flex;flex-direction:column;gap:8px">
+              <div style="display:flex;gap:10px;align-items:flex-start">
+                <div style="background:#D7FFF9;border:1px solid #00CFB4;border-radius:5px;padding:2px 7px;font-size:9px;font-weight:700;color:#005C71;flex-shrink:0;margin-top:1px">Option 1</div>
+                <div style="font-size:11px;color:#070E14;line-height:1.5">All Line Items and all quantities dispatched in a single Shipment</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start">
+                <div style="background:#D7FFF9;border:1px solid #00CFB4;border-radius:5px;padding:2px 7px;font-size:9px;font-weight:700;color:#005C71;flex-shrink:0;margin-top:1px">Option 2</div>
+                <div style="font-size:11px;color:#070E14;line-height:1.5">All quantities of <em>some</em> Line Items dispatched in one Shipment — remaining items ship separately</div>
+              </div>
+              <div style="display:flex;gap:10px;align-items:flex-start">
+                <div style="background:#D7FFF9;border:1px solid #00CFB4;border-radius:5px;padding:2px 7px;font-size:9px;font-weight:700;color:#005C71;flex-shrink:0;margin-top:1px">Option 3</div>
+                <div style="font-size:11px;color:#070E14;line-height:1.5">Partial quantities of all or some Line Items dispatched — useful for backorders or split warehouse fulfilment</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
+            <div style="background:#1E2D3D;padding:8px 14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">How a Maker creates a shipment</div></div>
+            <div style="padding:10px 14px;display:grid;grid-template-columns:1fr 1fr;gap:6px">
+              <div style="display:flex;gap:7px;align-items:center"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0"></div><div style="font-size:11px;color:#070E14">Seller Portal (UI)</div></div>
+              <div style="display:flex;gap:7px;align-items:center"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0"></div><div style="font-size:11px;color:#070E14">Bulk import (CSV)</div></div>
+              <div style="display:flex;gap:7px;align-items:center"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0"></div><div style="font-size:11px;color:#070E14">MConnect</div></div>
+              <div style="display:flex;gap:7px;align-items:center"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0"></div><div style="font-size:11px;color:#070E14">API</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <svg viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;font-family:Manrope,sans-serif">
+            <!-- Invoice box -->
+            <rect x="10" y="100" width="80" height="44" rx="8" fill="#005C71"/>
+            <text x="50" y="117" text-anchor="middle" font-size="11" font-weight="700" fill="white">Invoice</text>
+            <text x="50" y="131" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.6)">Maker 1</text>
+
+            <!-- Lines to line items -->
+            <line x1="90" y1="112" x2="135" y2="70" stroke="#DDE5EC" stroke-width="1.5"/>
+            <line x1="90" y1="122" x2="135" y2="122" stroke="#DDE5EC" stroke-width="1.5"/>
+            <line x1="90" y1="132" x2="135" y2="172" stroke="#DDE5EC" stroke-width="1.5"/>
+
+            <!-- Line items -->
+            <rect x="135" y="52" width="90" height="34" rx="6" fill="#00CFB4"/>
+            <text x="180" y="66" text-anchor="middle" font-size="9.5" font-weight="700" fill="#070E14">Line Item 1</text>
+            <text x="180" y="79" text-anchor="middle" font-size="8.5" fill="#005C71">Qty: 3</text>
+
+            <rect x="135" y="106" width="90" height="34" rx="6" fill="#00CFB4"/>
+            <text x="180" y="120" text-anchor="middle" font-size="9.5" font-weight="700" fill="#070E14">Line Item 2</text>
+            <text x="180" y="133" text-anchor="middle" font-size="8.5" fill="#005C71">Qty: 2</text>
+
+            <rect x="135" y="156" width="90" height="34" rx="6" fill="#00CFB4"/>
+            <text x="180" y="170" text-anchor="middle" font-size="9.5" font-weight="700" fill="#070E14">Line Item 3</text>
+            <text x="180" y="183" text-anchor="middle" font-size="8.5" fill="#005C71">Qty: 1</text>
+
+            <!-- Option 1: all in one -->
+            <line x1="225" y1="85" x2="275" y2="122" stroke="#DDE5EC" stroke-width="1.2"/>
+            <line x1="225" y1="123" x2="275" y2="125" stroke="#DDE5EC" stroke-width="1.2"/>
+            <line x1="225" y1="173" x2="275" y2="128" stroke="#DDE5EC" stroke-width="1.2"/>
+            <rect x="275" y="108" width="100" height="34" rx="6" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="325" y="122" text-anchor="middle" font-size="9.5" font-weight="700" fill="#005C71">Shipment 1</text>
+            <text x="325" y="135" text-anchor="middle" font-size="8" fill="#627180">All items, all qty</text>
+
+            <!-- Option 3 label: partial split -->
+            <text x="10" y="240" font-size="9" fill="#627180" font-style="italic">Example: partial split across two shipments</text>
+            <rect x="275" y="186" width="100" height="30" rx="6" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="325" y="200" text-anchor="middle" font-size="9.5" font-weight="700" fill="#005C71">Shipment 2</text>
+            <text x="325" y="212" text-anchor="middle" font-size="8" fill="#627180">Partial qty</text>
+
+            <text x="220" y="258" text-anchor="middle" font-size="10" font-weight="700" fill="#B45309">The Maker decides how to split</text>
+          </svg>
+        </div>
+
+      </div>`
+    },
+    {
+      type: "blank",
+      eyebrow: "Marketplacer Shipping Model",
+      headline: "Shipping **Rules**, Zones and Profiles",
+      body: `<div style="font-family:Manrope,sans-serif;margin-top:8px;display:grid;grid-template-columns:1fr 1.8fr;gap:20px;align-items:start">
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <div style="font-size:15px;font-weight:800;color:#005C71;margin-bottom:4px">Shipping Zones</div>
+            <div style="font-size:11px;color:#627180;line-height:1.6">A zone is a list of regions defined by postcode ranges. Zones determine which shipping rates apply based on where the customer is located.</div>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:800;color:#005C71;margin-bottom:4px">Shipping Profiles</div>
+            <div style="font-size:11px;color:#627180;line-height:1.6">A profile is assigned at the Variant level. Profiles are typically used in relation to an item's size or weight - e.g. small vs. large items have different shipping rules.</div>
+          </div>
+          <div>
+            <div style="font-size:15px;font-weight:800;color:#005C71;margin-bottom:4px">Shipping Rates</div>
+            <div style="font-size:11px;color:#627180;line-height:1.6">Rates apply to each rule depending on where the delivery address falls within the zone structure. Multiple rates can be created and named accordingly - e.g. standard, express, next-day.</div>
+          </div>
+          <div style="background:#D7FFF9;border:1px solid #00CFB4;border-radius:8px;padding:10px 14px;font-size:11px;color:#005C71;line-height:1.55"><strong>Slate</strong> sets the shipping proposition Marketplacer-wide as Operator. Optionally, Slate can grant individual Makers the ability to configure their own unique zones and rates within that framework.</div>
+        </div>
+
+        <div>
+          <div style="border:1px solid #DDE5EC;border-radius:10px;overflow:hidden;font-family:Manrope,sans-serif;font-size:11px">
+            <!-- Header row -->
+            <div style="display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;background:#F4F8FB">
+              <div style="padding:8px 10px;font-weight:700;color:#005C71;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC">Zones</div>
+              <div style="padding:8px 10px;color:#627180;border-bottom:1px solid #DDE5EC;grid-column:2/6">List of regions defined by postcode ranges</div>
+            </div>
+            <!-- Profiles row -->
+            <div style="display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;background:white">
+              <div style="padding:8px 10px;font-weight:700;color:#005C71;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC">Profiles</div>
+              <div style="padding:8px 10px;background:#DBE9EE;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC;font-size:10px;color:#005C71">Small<br/>12pm cutoff</div>
+              <div style="padding:8px 10px;background:#DBE9EE;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC;font-size:10px;color:#005C71">Small<br/>3pm cutoff</div>
+              <div style="padding:8px 10px;background:#DBE9EE;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC;font-size:10px;color:#005C71">Large<br/>12pm cutoff</div>
+              <div style="padding:8px 10px;background:#DBE9EE;border-bottom:1px solid #DDE5EC;font-size:10px;color:#005C71">Large<br/>3pm cutoff</div>
+            </div>
+            <!-- Maker 1 rules -->
+            <div style="display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;background:white">
+              <div style="padding:8px 10px;font-size:10px;font-weight:700;color:#070E14;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC;display:flex;align-items:center">Maker 1<br/>Rules</div>
+              <div style="padding:8px 10px;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC;font-size:10px;color:#627180;line-height:1.6">Delivery saver free<br/>Non-saver $2<br/>Next-day $4</div>
+              <div style="padding:8px 10px;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC;background:#FAFCFE"></div>
+              <div style="padding:8px 10px;border-right:1px solid #DDE5EC;border-bottom:1px solid #DDE5EC;font-size:10px;color:#627180;line-height:1.6">Delivery saver free<br/>Non-saver $4<br/>Next-day $8</div>
+              <div style="padding:8px 10px;border-bottom:1px solid #DDE5EC;background:#FAFCFE"></div>
+            </div>
+            <!-- Maker 2 rules -->
+            <div style="display:grid;grid-template-columns:80px 1fr 1fr 1fr 1fr;background:white">
+              <div style="padding:8px 10px;font-size:10px;font-weight:700;color:#070E14;border-right:1px solid #DDE5EC;display:flex;align-items:center">Maker 2<br/>Rules</div>
+              <div style="padding:8px 10px;border-right:1px solid #DDE5EC;background:#FAFCFE"></div>
+              <div style="padding:8px 10px;border-right:1px solid #DDE5EC;font-size:10px;color:#627180;line-height:1.6">Delivery saver free<br/>Non-saver $2<br/>Next-day $4</div>
+              <div style="padding:8px 10px;border-right:1px solid #DDE5EC;background:#FAFCFE"></div>
+              <div style="padding:8px 10px;font-size:10px;color:#627180;line-height:1.6">Delivery saver free<br/>Non-saver $2<br/>Next-day $5</div>
+            </div>
+          </div>
+          <div style="margin-top:8px;background:#FFFBEB;border:1px solid #B45309;border-radius:8px;padding:10px 14px;display:flex;flex-direction:column;gap:6px">
+            <div style="font-size:10px;font-weight:700;color:#B45309">Discussion points</div>
+            <div style="display:flex;gap:7px;align-items:flex-start"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#92400E;line-height:1.5">Where will Slate ship? Which US states and territories are in scope for Day 1?</div></div>
+            <div style="display:flex;gap:7px;align-items:flex-start"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#92400E;line-height:1.5">Is international shipping in scope now or a future phase?</div></div>
+            <div style="display:flex;gap:7px;align-items:flex-start"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#92400E;line-height:1.5">Will Makers set their own shipping rates, or will Slate define a standard model applied across all Makers?</div></div>
+          </div>
+        </div>
+
+      </div>`
+    },
+    {
       type: "section",
       label: "Topic 1",
       number: "01",
@@ -977,79 +1117,14 @@ const DECK = {
             <div style="font-size:10px;color:#627180;margin-top:4px">Ships and<br>updates status</div>
           </div>
         </div>
-        <div style="margin-top:16px;padding:12px 16px;background:#ECFDF5;border-left:3px solid #059669;border-radius:0 8px 8px 0">
-          <div style="font-size:11px;font-weight:700;color:#059669;margin-bottom:2px">Confirmed in Session 1: Fluent Commerce is the OMS</div>
-          <div style="font-size:12px;color:#070E14">Fluent decomposes the order into fulfilment orders per party. 1P routes to ShipBob/SMLXL. 3P routes to Maker via Marketplacer (future state). The open questions now are around how Adyen handles per-leg capture signals from Fluent.</div>
-        </div>
-      </div>`
-    },
-    {
-      type: "section",
-      label: "Topic 3",
-      number: "03",
-      headline: "Fulfilment **Models**",
-      sub: "Day 1 simplicity vs. Day 2 full capability - agreeing the target state"
-    },
-    {
-      type: "table",
-      eyebrow: "Fulfilment Models",
-      headline: "Day 1 vs. Day 2 **Fulfilment Options**",
-      columns: ["Model", "Description", "Day 1?", "Day 2?", "Complexity", "Why"],
-      rows: [
-        ["Maker → Customer direct", "Maker ships directly to Slate customer", "✓", "✓", "Low", "Single shipment leg, no intermediary"],
-        ["Maker → Installer", "Maker ships to Slate-authorised installer for fitting", "~", "✓", "Medium", "Requires installer network, address routing, and scheduling coordination"],
-        ["Maker → Slate DC", "Maker ships to Slate distribution centre", false, "✓", "High", "Two shipment legs, DC inbound receipt, re-dispatch, and Adyen capture timing complexity"],
-        ["Hybrid", "Combination of above based on product type", false, "✓", "High", "All of the above applies depending on product — routing logic must handle each case"]
-      ]
-    },
-    {
-      type: "section",
-      label: "Topic 4",
-      number: "04",
-      headline: "Shipment, Status and **Messaging**",
-      sub: "Who sends what, and when - from confirmation through to delivery"
-    },
-    {
-      type: "two-col",
-      eyebrow: "Messaging Ownership",
-      headline: "Communication **Ownership** by System",
-      body: "Each customer-facing communication must be owned by a single system to avoid duplication, conflicting messages, or gaps in the post-purchase experience.",
-      points: [
-        "Order confirmation: triggered by commercetools, sent via Salesforce Marketing Cloud (SFMC)",
-        "Shipment notification: triggered by Fluent Commerce, sent via Salesforce Marketing Cloud (SFMC)",
-        "Delivery confirmation: carrier / OMS integration",
-        "Cancellation or change: commercetools or Marketplacer API (Day 2)",
-        "Maker-to-customer messages: via Marketplacer Seller Portal or API"
-      ],
-      visual: `<div style="width:100%;max-width:360px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:8px">
-        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
-            <div style="font-size:12px;font-weight:700;color:#070E14">Order Confirmation</div>
-            <div style="display:flex;gap:4px;flex-shrink:0">
-              <div style="background:#DBE9EE;color:#005C71;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">CT source</div>
-              <div style="background:#D7FFF9;color:#009E8A;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">SFMC sends</div>
-            </div>
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+          <div style="padding:12px 16px;background:#ECFDF5;border-left:3px solid #059669;border-radius:0 8px 8px 0">
+            <div style="font-size:11px;font-weight:700;color:#059669;margin-bottom:2px">Confirmed in Session 1: Fluent Commerce is the OMS</div>
+            <div style="font-size:12px;color:#070E14">Fluent decomposes the order into fulfilment orders per party. 1P routes to ShipBob/SMLXL. 3P routes to Maker via Marketplacer (future state).</div>
           </div>
-        </div>
-        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
-          <div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
-            <div style="font-size:12px;font-weight:700;color:#070E14">Shipment Update</div>
-            <div style="display:flex;gap:4px;flex-shrink:0">
-              <div style="background:#DBE9EE;color:#005C71;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">Fluent source</div>
-              <div style="background:#D7FFF9;color:#009E8A;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">SFMC sends</div>
-            </div>
-          </div>
-        </div>
-        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <div style="font-size:12px;font-weight:700;color:#070E14">Cancellation Notice</div>
-            <div style="background:#D7FFF9;color:#009E8A;font-size:10px;font-weight:700;border-radius:100px;padding:2px 8px">Marketplacer</div>
-          </div>
-        </div>
-        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <div style="font-size:12px;font-weight:700;color:#070E14">Maker Communication</div>
-            <div style="background:#D7FFF9;color:#009E8A;font-size:10px;font-weight:700;border-radius:100px;padding:2px 8px">Marketplacer</div>
+          <div style="padding:12px 16px;background:#FFFBEB;border-left:3px solid #B45309;border-radius:0 8px 8px 0">
+            <div style="font-size:11px;font-weight:700;color:#B45309;margin-bottom:2px">Open question - confirm in this session</div>
+            <div style="font-size:12px;color:#070E14">What system is currently responsible for sending capture signals to Adyen for 1P fulfilment? We assume it is Fluent Commerce — and that the same pattern will apply for 3P future state. This needs to be confirmed before the Adyen integration pattern is finalised.</div>
           </div>
         </div>
       </div>`
@@ -1173,28 +1248,151 @@ const DECK = {
         <div style="margin-top:5px;background:#F4F8FB;border-radius:6px;padding:5px 12px">
           <div style="font-size:10px;color:#627180">Green = current 1P flow &nbsp;·&nbsp; Amber dashed = future 3P Maker flow &nbsp;·&nbsp; Black = confirmed integration</div>
         </div>
-      </div>`    },
+      </div>`
+    },
     {
-      type: "three-col",
-      eyebrow: "Session 3 Outcomes",
-      headline: "Decisions **Required**",
-      cards: [
-        {
-          icon: "box",
-          title: "End-to-End Order Flow",
-          body: "Documented flow from customer checkout through OMS decomposition to Maker fulfilment and shipment notification."
-        },
-        {
-          icon: "layers",
-          title: "Fulfilment Model by Product Type",
-          body: "Agreement on Day 1 fulfilment approach (direct ship) and the roadmap to Day 2 models including installer routing."
-        },
-        {
-          icon: "mail",
-          title: "Messaging Ownership",
-          body: "Clear RACI for every customer-facing communication: which system sends, triggers, and owns each message type."
-        }
+      type: "section",
+      label: "Topic 3",
+      number: "03",
+      headline: "Fulfilment **Models**",
+      sub: "Day 1 simplicity vs. Day 2 full capability - agreeing the target state"
+    },
+    {
+      type: "table",
+      eyebrow: "Fulfilment Models",
+      headline: "Day 1 vs. Day 2 **Fulfilment Options**",
+      columns: ["Model", "Description", "Day 1?", "Day 2?", "Complexity", "Why"],
+      rows: [
+        ["Maker → Customer direct", "Maker ships directly to Slate customer", "✓", "✓", "Low", "Single shipment leg, no intermediary"],
+        ["Maker → Installer", "Maker ships to Slate-authorised installer for fitting", "~", "✓", "Medium", "Requires installer network, address routing, and scheduling coordination"],
+        ["Maker → Slate DC", "Maker ships to Slate distribution centre", false, "✓", "High", "Two shipment legs, DC inbound receipt, re-dispatch, and Adyen capture timing complexity"],
+        ["Hybrid", "Combination of above based on product type", false, "✓", "High", "All of the above applies depending on product — routing logic must handle each case"]
       ]
+    },
+    {
+      type: "blank",
+      eyebrow: "Webhook Reference",
+      headline: "shipment/create **Webhook Payload**",
+      body: `<div style="font-family:Manrope,sans-serif;margin-top:8px;display:grid;grid-template-columns:1fr 1.4fr;gap:16px;align-items:start">
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div style="font-size:12px;color:#627180;line-height:1.6">When a Maker creates a shipment in Marketplacer (via Seller Portal, bulk import, MConnect, or API), Marketplacer emits a <code style="background:#F4F8FB;padding:1px 5px;border-radius:3px;font-size:11px">shipment/create</code> webhook. This is how Fluent Commerce knows a 3P order has been fulfilled and can trigger the Adyen capture signal.</div>
+
+          <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
+            <div style="background:#1E2D3D;padding:8px 14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Key payload fields</div></div>
+            <div style="padding:10px 14px;display:flex;flex-direction:column;gap:7px">
+              <div style="display:flex;gap:8px;align-items:flex-start">
+                <code style="font-size:10px;background:#F4F8FB;padding:1px 5px;border-radius:3px;color:#005C71;flex-shrink:0">id</code>
+                <div style="font-size:11px;color:#627180">Shipment ID</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start">
+                <code style="font-size:10px;background:#F4F8FB;padding:1px 5px;border-radius:3px;color:#005C71;flex-shrink:0">carrier</code>
+                <div style="font-size:11px;color:#627180">Carrier name e.g. Australia Post, FedEx, UPS</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start">
+                <code style="font-size:10px;background:#F4F8FB;padding:1px 5px;border-radius:3px;color:#005C71;flex-shrink:0">dispatchedAt</code>
+                <div style="font-size:11px;color:#627180">Timestamp of dispatch</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start">
+                <code style="font-size:10px;background:#F4F8FB;padding:1px 5px;border-radius:3px;color:#005C71;flex-shrink:0">shippedItems</code>
+                <div style="font-size:11px;color:#627180">Array of line items and quantities shipped in this shipment</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start">
+                <code style="font-size:10px;background:#F4F8FB;padding:1px 5px;border-radius:3px;color:#005C71;flex-shrink:0">trackingLink</code>
+                <div style="font-size:11px;color:#627180">Full tracking URL for customer-facing notification via SFMC</div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start">
+                <code style="font-size:10px;background:#F4F8FB;padding:1px 5px;border-radius:3px;color:#005C71;flex-shrink:0">trackingNumber</code>
+                <div style="font-size:11px;color:#627180">Carrier tracking number</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background:#D7FFF9;border:1px solid #00CFB4;border-radius:8px;padding:10px 14px;font-size:11px;color:#005C71;line-height:1.55">
+            Fluent receives this webhook and uses it to trigger the <strong>Adyen capture signal</strong> for this fulfilment leg and the <strong>shipment notification</strong> to the customer via SFMC.
+          </div>
+        </div>
+
+        <div style="background:#070E14;border-radius:12px;padding:18px 20px;font-family:'Courier New',monospace;font-size:11px;line-height:1.8;overflow:auto">
+<span style="color:#6B7280">{</span><br/>
+&nbsp;&nbsp;<span style="color:#93c5fd">"id"</span>: <span style="color:#86efac">"V2ViaG9va0V2ZW50LTE="</span>,<br/>
+&nbsp;&nbsp;<span style="color:#93c5fd">"event_name"</span>: <span style="color:#86efac">"update"</span>,<br/>
+&nbsp;&nbsp;<span style="color:#93c5fd">"payload"</span>: <span style="color:#6B7280">{</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"data"</span>: <span style="color:#6B7280">{</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"node"</span>: <span style="color:#6B7280">{</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"id"</span>: <span style="color:#86efac">"U2hpcG1lbnQtNg=="</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"carrier"</span>: <span style="color:#86efac">"FedEx"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"__typename"</span>: <span style="color:#86efac">"Shipment"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"dispatchedAt"</span>: <span style="color:#86efac">"2026-06-03T09:00:00-07:00"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"shippedItems"</span>: <span style="color:#6B7280">[</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B7280">{</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"id"</span>: <span style="color:#86efac">"U2hpcG1lbnQ..."</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"lineItem"</span>: <span style="color:#6B7280">{</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"id"</span>: <span style="color:#86efac">"TGluZUl0ZW0tNg=="</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B7280">}</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"quantity"</span>: <span style="color:#fca5a5">1</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B7280">}</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B7280">]</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"trackingLink"</span>: <span style="color:#86efac">"https://fedex.com/track/SLATESESSION3"</span>,<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#93c5fd">"trackingNumber"</span>: <span style="color:#86efac">"SLATESESSION3"</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B7280">}</span><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6B7280">}</span><br/>
+&nbsp;&nbsp;<span style="color:#6B7280">}</span><br/>
+<span style="color:#6B7280">}</span>
+        </div>
+
+      </div>`
+    },
+    {
+      type: "section",
+      label: "Topic 4",
+      number: "04",
+      headline: "Shipment, Status and **Messaging**",
+      sub: "Who sends what, and when - from confirmation through to delivery"
+    },
+    {
+      type: "two-col",
+      eyebrow: "Messaging Ownership",
+      headline: "Communication **Ownership** by System",
+      body: "Each customer-facing communication must be owned by a single system to avoid duplication, conflicting messages, or gaps in the post-purchase experience.",
+      points: [
+        "Order confirmation: triggered by commercetools, sent via Salesforce Marketing Cloud (SFMC)",
+        "Shipment notification: triggered by Fluent Commerce, sent via Salesforce Marketing Cloud (SFMC)",
+        "Delivery confirmation: carrier / OMS integration",
+        "Cancellation or Return/Refund: triggered by commercetools (or Marketplacer), sent via Salesforce Marketing Cloud (SFMC)",
+      ],
+      visual: `<div style="width:100%;max-width:360px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:8px">
+        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+            <div style="font-size:12px;font-weight:700;color:#070E14">Order Confirmation</div>
+            <div style="display:flex;gap:4px;flex-shrink:0">
+              <div style="background:#DBE9EE;color:#005C71;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">CT source</div>
+              <div style="background:#D7FFF9;color:#009E8A;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">SFMC sends</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:6px">
+            <div style="font-size:12px;font-weight:700;color:#070E14">Shipment Update</div>
+            <div style="display:flex;gap:4px;flex-shrink:0">
+              <div style="background:#DBE9EE;color:#005C71;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">Fluent source</div>
+              <div style="background:#D7FFF9;color:#009E8A;font-size:9px;font-weight:700;border-radius:100px;padding:2px 7px">SFMC sends</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="font-size:12px;font-weight:700;color:#070E14">Cancellation Notice</div>
+            <div style="background:#D7FFF9;color:#009E8A;font-size:10px;font-weight:700;border-radius:100px;padding:2px 8px">Marketplacer</div>
+          </div>
+        </div>
+        <div style="background:white;border:1px solid #DDE5EC;border-radius:8px;padding:10px 14px">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div style="font-size:12px;font-weight:700;color:#070E14">Maker Communication</div>
+            <div style="background:#D7FFF9;color:#009E8A;font-size:10px;font-weight:700;border-radius:100px;padding:2px 8px">Marketplacer</div>
+          </div>
+        </div>
+      </div>`
     },
     {
       type: "closing",
