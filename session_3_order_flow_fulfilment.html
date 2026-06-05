@@ -1201,14 +1201,9 @@ const DECK = {
             <!-- Step 10: Maker updates tracking -->
             <line x1="900" y1="252" x2="746" y2="252" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD3)"/>
             <text x="820" y="248" text-anchor="middle" font-size="9.5" fill="#070E14">Update: tracking number + carrier</text>
-
-            <!-- Step 11: Shipment status to ShipBob -->
-            <line x1="740" y1="272" x2="1034" y2="272" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD3)"/>
-            <text x="890" y="268" text-anchor="middle" font-size="9.5" fill="#070E14">Shipment status update</text>
-
-            <!-- Step 12: ShipBob to Fluent -->
-            <line x1="1040" y1="292" x2="551" y2="292" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD3)"/>
-            <text x="797" y="288" text-anchor="middle" font-size="9.5" fill="#070E14">Shipment event to Fluent</text>
+            <!-- Step 11: Marketplacer to Fluent - shipment event -->
+            <line x1="740" y1="272" x2="551" y2="272" stroke="#070E14" stroke-width="1.5" marker-end="url(#aD3)"/>
+            <text x="645" y="268" text-anchor="middle" font-size="9.5" fill="#070E14">Shipment event to Fluent</text>
 
             <!-- Step 13: Fluent captures Adyen -->
             <line x1="545" y1="312" x2="386" y2="312" stroke="#059669" stroke-width="1.5" marker-end="url(#aG3)"/>
@@ -1264,7 +1259,7 @@ const DECK = {
       columns: ["Model", "Description", "Day 1?", "Day 2?", "Complexity", "Why"],
       rows: [
         ["Maker → Customer direct", "Maker ships directly to Slate customer", "✓", "✓", "Low", "Single shipment leg, no intermediary"],
-        ["Maker → Installer", "Maker ships to Slate-authorised installer for fitting", "~", "✓", "Medium", "Requires installer network, address routing, and scheduling coordination"],
+        ["Maker → Installer", "Maker ships to authorised installer (RepairPal) for fitting. Requires scheduled shipping - Makers must not ship before installer is ready.", "~", "✓", "Medium", "Requires RepairPal integration for scheduling. Makers must ship on a specific date - small shops cannot hold large items."],
         ["Maker → Slate DC", "Maker ships to Slate distribution centre", false, "✓", "High", "Two shipment legs, DC inbound receipt, re-dispatch, and Adyen capture timing complexity"],
         ["Hybrid", "Combination of above based on product type", false, "✓", "High", "All of the above applies depending on product — routing logic must handle each case"]
       ]
@@ -1358,7 +1353,7 @@ const DECK = {
       points: [
         "Order confirmation: triggered by commercetools, sent via Salesforce Marketing Cloud (SFMC)",
         "Shipment notification: triggered by Fluent Commerce, sent via Salesforce Marketing Cloud (SFMC)",
-        "Delivery confirmation: carrier / OMS integration",
+        "Delivery confirmation: MP fires shipment event but cannot confirm delivery receipt - tools like AfterShip needed to close the loop",
         "Cancellation or Return/Refund: triggered by commercetools (or Marketplacer), sent via Salesforce Marketing Cloud (SFMC)",
       ],
       visual: `<div style="width:100%;max-width:360px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:8px">
