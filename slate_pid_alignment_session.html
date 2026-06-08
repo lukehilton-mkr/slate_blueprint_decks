@@ -672,36 +672,35 @@ const DECK = {
       ]
     },
     {
-      type: "blank",
+      type: "two-col",
       eyebrow: "Related Session — Order Identifier Alignment",
       headline: "Passing **CT order references** into Marketplacer",
-      body: `<div style="display:flex;gap:32px;height:480px;margin-top:8px;">
-        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:14px;">
-          <p style="font-size:14px;color:#627180;line-height:1.7;">A follow-on session should align on how CT order and line item identifiers are carried into Marketplacer at the point of order creation.</p>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" fill="none" stroke="#005C71" stroke-width="2.5" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:#1E2D3D;font-weight:500;line-height:1.55;">CT order number on the <code style="background:#DBE9EE;color:#005C71;padding:1px 6px;border-radius:4px;font-size:12px;">order.externalIds</code> array — key: <code style="background:#DBE9EE;color:#005C71;padding:1px 6px;border-radius:4px;font-size:12px;">OrderId</code></span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" fill="none" stroke="#005C71" stroke-width="2.5" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:#1E2D3D;font-weight:500;line-height:1.55;">CT line item ID on each <code style="background:#DBE9EE;color:#005C71;padding:1px 6px;border-radius:4px;font-size:12px;">lineItem.externalIds</code> — key: <code style="background:#DBE9EE;color:#005C71;padding:1px 6px;border-radius:4px;font-size:12px;">LineItemId</code></span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" fill="none" stroke="#005C71" stroke-width="2.5" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:#1E2D3D;font-weight:500;line-height:1.55;">Delivery method, promise &amp; fulfilment date via <code style="background:#DBE9EE;color:#005C71;padding:1px 6px;border-radius:4px;font-size:12px;">lineItem.metadata</code> — e.g. key: <code style="background:#DBE9EE;color:#005C71;padding:1px 6px;border-radius:4px;font-size:12px;">DELIVERY_OPTION_NAME</code></span></div>
-            <div style="display:flex;align-items:flex-start;gap:10px;"><div style="width:20px;height:20px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;"><svg viewBox="0 0 24 24" fill="none" stroke="#005C71" stroke-width="2.5" width="11" height="11"><polyline points="20 6 9 17 4 12"/></svg></div><span style="font-size:13px;color:#1E2D3D;font-weight:500;line-height:1.55;">Original payment reference passed via <code style="background:#DBE9EE;color:#005C71;padding:1px 6px;border-radius:4px;font-size:12px;">paymentGatewayDetails</code></span></div>
-          </div>
-        </div>
-        <div style="flex:1.1;background:#070E14;border-radius:14px;padding:24px 28px;overflow:hidden;font-family:monospace;font-size:11.5px;line-height:1.75;color:#8fa8b8;position:relative;">
+      body: "A follow-on session should align on how CT order and line item identifiers are carried into Marketplacer at the point of order creation, ensuring every Marketplacer order can be traced back to its CT source.",
+      points: [
+        "CT order number on order.externalIds — key: OrderId",
+        "CT line item ID on each lineItem.externalIds — key: LineItemId",
+        "Delivery method, promise and fulfilment date via lineItem.metadata — e.g. key: DELIVERY_OPTION_NAME",
+        "Original payment reference passed via paymentGatewayDetails",
+        "Recommend scheduling as a 30-minute deep dive alongside Session 3 (Order Flow) outputs"
+      ],
+      visual: `<div style="height:100%;display:flex;align-items:center;justify-content:center;padding:28px 32px 28px 0;">
+        <div style="background:#070E14;border-radius:14px;padding:22px 26px;font-family:monospace;font-size:11px;line-height:1.8;color:#8fa8b8;position:relative;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4);">
           <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#005C71,#00CFB4);border-radius:14px 14px 0 0;"></div>
-          <div style="margin-bottom:12px;display:flex;align-items:center;gap:8px;"><span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#00CFB4;">orderCreate mutation</span></div>
-          <span style="color:#627180;">mutation</span> <span style="color:#fff;">orderCreate</span><span style="color:#627180;">(input: {</span><br>
+          <div style="margin-bottom:14px;"><span style="font-size:10px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:#00CFB4;">orderCreate mutation</span></div>
+          <span style="color:#627180;">mutation</span> <span style="color:#fff;font-weight:600;">orderCreate</span><span style="color:#627180;">(input: {</span><br>
           &nbsp;&nbsp;<span style="color:#627180;">order: {</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00CFB4;">externalIds</span><span style="color:#627180;">: [{</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">key</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"OrderId"</span> &nbsp;<span style="color:#3d5a6e;font-style:italic;"># CT order ref</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">key</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"OrderId"</span>&nbsp;&nbsp;<span style="color:#3d5a6e;font-style:italic;"># CT order ref</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">value</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"CT-XXXX"</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#627180;">}]</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">paymentGatewayDetails</span><span style="color:#627180;">: {</span> <span style="color:#3d5a6e;font-style:italic;"># Adyen ref</span> <span style="color:#627180;">}</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">firstName</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"John"</span> &nbsp;<span style="color:#8fa8b8;">surname</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"Doe"</span> <span style="color:#627180;">...</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">paymentGatewayDetails</span><span style="color:#627180;">: {</span>&nbsp;<span style="color:#3d5a6e;font-style:italic;"># Adyen ref</span>&nbsp;<span style="color:#627180;">}</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">firstName</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"John"</span>&nbsp;&nbsp;<span style="color:#8fa8b8;">surname</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"Doe"</span> <span style="color:#627180;">...</span><br>
           &nbsp;&nbsp;<span style="color:#627180;">}</span><br>
           &nbsp;&nbsp;<span style="color:#627180;">lineItems: [{</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">variantId</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"VmFyaWFudC0..."</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">quantity</span><span style="color:#627180;">:</span> <span style="color:#fff;">1</span> &nbsp;<span style="color:#8fa8b8;">cost</span><span style="color:#627180;">: {</span><span style="color:#8fa8b8;">amount</span><span style="color:#627180;">:</span> <span style="color:#fff;">8900</span><span style="color:#627180;">}</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">quantity</span><span style="color:#627180;">:</span> <span style="color:#fff;">1</span>&nbsp;&nbsp;<span style="color:#8fa8b8;">cost</span><span style="color:#627180;">: {</span><span style="color:#8fa8b8;">amount</span><span style="color:#627180;">:</span> <span style="color:#fff;">8900</span><span style="color:#627180;">}</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00CFB4;">externalIds</span><span style="color:#627180;">: [{</span><br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">key</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"LineItemId"</span> &nbsp;<span style="color:#3d5a6e;font-style:italic;"># CT line ref</span><br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">key</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"LineItemId"</span>&nbsp;&nbsp;<span style="color:#3d5a6e;font-style:italic;"># CT line ref</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#8fa8b8;">value</span><span style="color:#627180;">:</span> <span style="color:#00CFB4;">"CT-LINE-XXXX"</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#627180;">}]</span><br>
           &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#00CFB4;">metadata</span><span style="color:#627180;">: [{</span><br>
