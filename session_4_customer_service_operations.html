@@ -668,12 +668,14 @@ const DECK = {
         "Hours: 7 days a week, 9am - 8pm ET, excluding US public holidays",
         "Top issues: account changes, product inquiries, reservation submission support (will evolve when preorders go live)",
         "Agent capabilities: account updates, refunds, cancellations, merch returns and exchanges",
-        "IdP: FusionAuth with SSO - believed to be OAuth (to be confirmed)"
+        "Customer IdP: FusionAuth with SSO — OAuth protocol to be confirmed",
+        "Internal IdP: Microsoft Active Directory for all internal Slate employees",
+        "ShipBob: 1P 3PL only — not involved in Maker fulfilment or Maker returns"
       ],
       visual: `<div style="width:100%;max-width:360px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:8px">
         <div style="background:white;border:1px solid #DDE5EC;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(7,14,20,0.05)">
           <div style="background:#059669;padding:10px 16px">
-            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.7)">Confirmed pre-session</div>
+            <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.7)">Confirmed in session</div>
             <div style="font-size:13px;font-weight:800;color:white">Current support model</div>
           </div>
           <div style="padding:12px 16px;display:flex;flex-direction:column;gap:8px">
@@ -683,25 +685,29 @@ const DECK = {
             </div>
             <div style="display:flex;align-items:flex-start;gap:8px">
               <div style="font-size:12px;font-weight:700;color:#070E14;flex-shrink:0;width:130px">Hours</div>
-              <div style="font-size:11px;color:#627180;line-height:1.4">7 days · 9am - 8pm ET excl. US holidays</div>
-            </div>
-            <div style="display:flex;align-items:flex-start;gap:8px">
-              <div style="font-size:12px;font-weight:700;color:#070E14;flex-shrink:0;width:130px">Top issues</div>
-              <div style="font-size:11px;color:#627180;line-height:1.4">Account, product queries, reservations</div>
+              <div style="font-size:11px;color:#627180;line-height:1.4">7 days · 9am–8pm ET excl. US holidays</div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:8px">
               <div style="font-size:12px;font-weight:700;color:#070E14;flex-shrink:0;width:130px">Agent actions</div>
               <div style="font-size:11px;color:#627180;line-height:1.4">Account changes, refunds, cancellations, merch returns and exchanges</div>
             </div>
             <div style="display:flex;align-items:flex-start;gap:8px">
-              <div style="font-size:12px;font-weight:700;color:#070E14;flex-shrink:0;width:130px">IdP / SSO</div>
-              <div style="font-size:11px;color:#627180;line-height:1.4">FusionAuth · SSO enabled · OAuth (to confirm)</div>
+              <div style="font-size:12px;font-weight:700;color:#070E14;flex-shrink:0;width:130px">Customer IdP</div>
+              <div style="font-size:11px;color:#627180;line-height:1.4">FusionAuth · SSO enabled · OAuth protocol to confirm</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px">
+              <div style="font-size:12px;font-weight:700;color:#070E14;flex-shrink:0;width:130px">Internal IdP</div>
+              <div style="font-size:11px;color:#627180;line-height:1.4">Microsoft Active Directory for all Slate employees</div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:8px">
+              <div style="font-size:12px;font-weight:700;color:#070E14;flex-shrink:0;width:130px">ShipBob</div>
+              <div style="font-size:11px;color:#627180;line-height:1.4">1P 3PL only — <strong style="color:#DC2626">not involved</strong> in Maker fulfilment or Maker returns</div>
             </div>
           </div>
         </div>
         <div style="background:#FFFBEB;border:1px solid #B45309;border-radius:10px;padding:10px 14px">
-          <div style="font-size:10px;font-weight:700;color:#B45309;margin-bottom:4px">To confirm in session</div>
-          <div style="font-size:11px;color:#070E14;line-height:1.55">OAuth protocol to be verified. Reservation support flow will change when preorders go live - understand the timeline and what changes for CS.</div>
+          <div style="font-size:10px;font-weight:700;color:#B45309;margin-bottom:4px">Still to confirm</div>
+          <div style="font-size:11px;color:#070E14;line-height:1.55">OAuth protocol for FusionAuth to be verified. Reservation support flow will change when preorders go live — understand timeline and CS impact.</div>
         </div>
       </div>`
     },
@@ -765,48 +771,48 @@ const DECK = {
     },
     {
       type: "blank",
-      eyebrow: "Business Decision",
+      eyebrow: "Decision · Confirmed in Session 4",
       headline: "Salesforce **Full API Integration** from Day 1",
       body: `<div style="margin-top:10px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:12px">
 
-        <div style="background:#D7FFF9;border:1.5px solid #00CFB4;border-radius:10px;padding:10px 16px;font-size:11px;color:#005C71;line-height:1.6">
-          <strong>Slate's preferred direction:</strong> Full Salesforce Service Cloud API integration from Day 1 - not the SSO swivel-chair approach. This is the right long-term decision, but it carries higher integration effort and has direct implications for Marketplacer's Stream 2 technical enablement scope and sequencing.
+        <div style="background:#DCFCE7;border:1.5px solid #059669;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:10px">
+          <div style="font-size:18px;flex-shrink:0">✅</div>
+          <div style="font-size:11px;color:#065F46;line-height:1.6"><strong>Confirmed in session:</strong> Full Salesforce Service Cloud API integration from Day 1. The SSO swivel-chair approach is not required. Marketplacer order data will be surfaced directly inside Salesforce case view, with all CS actions initiated from within Salesforce.</div>
         </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-          <div style="background:white;border:1.5px solid #DDE5EC;border-radius:12px;overflow:hidden;opacity:0.7">
+          <div style="background:white;border:1.5px solid #DDE5EC;border-radius:12px;overflow:hidden;opacity:0.6">
             <div style="background:#DBE9EE;padding:10px 16px;display:flex;align-items:center;gap:8px">
-              <div style="background:#627180;color:white;border-radius:6px;padding:3px 9px;font-size:9px;font-weight:700">NOT PREFERRED</div>
+              <div style="background:#627180;color:white;border-radius:6px;padding:3px 9px;font-size:9px;font-weight:700">NOT CHOSEN</div>
               <div style="font-size:13px;font-weight:800;color:#627180">SSO Swivel Chair</div>
             </div>
             <div style="padding:12px 16px;display:flex;flex-direction:column;gap:7px">
               <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#DDE5EC;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#627180;line-height:1.5">Agent opens case in Salesforce, SSO link opens Marketplacer Operator Portal in new tab</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#DDE5EC;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#627180;line-height:1.5">Agent takes action in Marketplacer then returns to Salesforce - context switching required</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#DDE5EC;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#627180;line-height:1.5">Lower integration cost but inferior agent experience and limited audit trail</div></div>
-              <div style="margin-top:4px;background:#F4F8FB;border-radius:6px;padding:6px 10px;font-size:10px;color:#627180;font-weight:600">Faster to launch · Lower effort · Not Slate's preference</div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#DDE5EC;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#627180;line-height:1.5">Context switching required — inferior agent experience and limited audit trail</div></div>
+              <div style="margin-top:4px;background:#F4F8FB;border-radius:6px;padding:6px 10px;font-size:10px;color:#627180;font-weight:600">Lower effort · Available as fallback only</div>
             </div>
           </div>
 
-          <div style="background:white;border:2px solid #00CFB4;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,207,180,0.15)">
-            <div style="background:#D7FFF9;padding:10px 16px;display:flex;align-items:center;gap:8px">
-              <div style="background:#00CFB4;color:#070E14;border-radius:6px;padding:3px 9px;font-size:9px;font-weight:700">PREFERRED</div>
-              <div style="font-size:13px;font-weight:800;color:#070E14">Full API Integration from Day 1</div>
+          <div style="background:white;border:2px solid #059669;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(5,150,105,0.12)">
+            <div style="background:#DCFCE7;padding:10px 16px;display:flex;align-items:center;gap:8px">
+              <div style="background:#059669;color:white;border-radius:6px;padding:3px 9px;font-size:9px;font-weight:700">CONFIRMED</div>
+              <div style="font-size:13px;font-weight:800;color:#065F46">Full API Integration from Day 1</div>
             </div>
             <div style="padding:12px 16px;display:flex;flex-direction:column;gap:7px">
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Marketplacer order data surfaced directly inside Salesforce case view</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Cancel, refund, and Maker messaging triggered from within Salesforce - zero context switching</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">RMA and return labels managed via Fluent + ShipBob integration</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Full audit trail in Salesforce - best agent experience</div></div>
-              <div style="margin-top:4px;background:#D7FFF9;border-radius:6px;padding:6px 10px;font-size:10px;color:#005C71;font-weight:600">Higher integration effort · Best agent experience · Full visibility</div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Marketplacer order data surfaced directly inside Salesforce case view</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Cancel, refund, and Maker messaging triggered from within Salesforce — zero context switching</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Full order status visibility: 1P and 3P items, carrier, tracking — all in one pane</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:5px"></div><div style="font-size:11px;color:#070E14;line-height:1.5">Full audit trail in Salesforce — best agent experience</div></div>
+              <div style="margin-top:4px;background:#DCFCE7;border-radius:6px;padding:6px 10px;font-size:10px;color:#065F46;font-weight:600">Higher integration effort · Best agent experience · Full visibility</div>
             </div>
           </div>
         </div>
 
-        <div style="background:#FEF2F2;border:1.5px solid #DC2626;border-radius:10px;padding:10px 16px;display:flex;align-items:flex-start;gap:12px">
-          <div style="font-size:22px;flex-shrink:0">⚠️</div>
+        <div style="background:#DBE9EE;border:1.5px solid #005C71;border-radius:10px;padding:10px 16px;display:flex;align-items:flex-start;gap:12px">
+          <div style="font-size:20px;flex-shrink:0">ℹ️</div>
           <div>
-            <div style="font-size:11px;font-weight:700;color:#DC2626;margin-bottom:3px">Impact on Marketplacer Stream 2</div>
-            <div style="font-size:11px;color:#070E14;line-height:1.6">Choosing full API integration from Day 1 means the Salesforce Service Cloud integration must be included in Stream 2 technical enablement from the start - not deferred. This affects the enablement sequence, the integration backlog scope, and the timeline to go-live. Marketplacer and Aries will need to confirm capacity and sequencing before this is locked.</div>
+            <div style="font-size:11px;font-weight:700;color:#005C71;margin-bottom:3px">Stream 2 implication — now locked</div>
+            <div style="font-size:11px;color:#070E14;line-height:1.6">The Salesforce Service Cloud API integration must be included in Stream 2 technical enablement from the start — not deferred. This affects the enablement sequence, integration backlog scope, and go-live timeline. Marketplacer and Aries to confirm capacity and sequencing.</div>
           </div>
         </div>
 
@@ -825,34 +831,40 @@ const DECK = {
       headline: "Workflow **Ownership** by System",
       columns: ["Workflow", "Agent initiates via", "Marketplacer action", "Maker capability", "Day 1"],
       rows: [
-        ["Cancellation (pre-ship)", "SFSC", "Initiate cancellation via Marketplacer API", "Notified", "Slate to decide"],
-        ["Return request", "SFSC", "Initiate return/refund request via Marketplacer API", "Reverse logistics", "Slate to decide"],
-        ["Refund (full)", "Financial Controller (Operator Portal)", "Initiated by financial controller via Operator Portal", "Payout adjusted", "Slate to decide"],
-        ["Refund (partial)", "Financial Controller (Operator Portal)", "Initiated by financial controller via Operator Portal", "Payout adjusted", "Slate to decide"],
+        ["Customer self-cancellation", "Slate website (remorse window)", "refundRequestCreate (REFUND_ACCEPTED) via Fluent — automated, no agent needed", "Notified", "In scope — 15 min remorse period under consideration"],
+        ["Cancellation (pre-ship)", "SFSC", "Initiate cancellation via Marketplacer API", "Notified", "✓ Confirmed"],
+        ["Return request", "SFSC", "Initiate return/refund request via Marketplacer API", "Reverse logistics", "✓ Confirmed"],
+        ["Refund (full)", "Automated via webhook / API", "refundRequestApprove triggered programmatically — no manual portal step", "Payout adjusted", "✓ Confirmed"],
+        ["Refund (partial)", "Automated via webhook / API", "refundRequestApprove triggered programmatically — no manual portal step", "Payout adjusted", "✓ Confirmed"],
         ["Message to Maker", "SFSC", "Initiated via Marketplacer chat API or Invoice Annotations API", "Maker responds in portal", "Slate to decide"],
-        ["Maker-initiated cancel", "Maker (Seller Portal or API)", "Maker initiates via Seller Portal or API - SFSC is updated. Slate messages customer.", "Maker initiates directly", "Slate to decide"]
+        ["Maker-initiated cancel", "Maker (Seller Portal or API)", "Maker initiates via Seller Portal or API - SFSC is updated. Slate messages customer.", "Maker initiates directly", "✓ Confirmed"]
       ],
       visual: `<div style="font-family:Manrope,sans-serif;margin-top:12px;background:#DBE9EE;border-radius:8px;padding:8px 14px;font-size:10px;color:#005C71;line-height:1.6"><strong>* Fallback:</strong> Marketplacer Operator Portal and Maker Seller Portal remain available as a fallback in the event of a SFSC integration outage or escalation scenario.</div>`
     },
     {
       type: "two-col",
-      eyebrow: "Reverse Logistics",
+      eyebrow: "Decision · Confirmed in Session 4",
       headline: "Can **Makers** initiate cancellations and returns?",
-      body: "This is a key governance decision. Maker-initiated actions reduce agent workload but require clear rules and limits to protect the customer experience.",
+      body: "Confirmed in session. Makers have limited reverse logistics permissions — cancellations are allowed, but returns and refunds must always be initiated by Slate CS agents.",
       points: [
-        "Decision needed: can Makers formally initiate cancellations in Marketplacer?",
-        "Decision needed: can Makers initiate returns/refunds or only request them?"
+        "✓ Makers CAN formally initiate cancellations via the Seller Portal or API — before the point of shipment",
+        "✗ Makers CANNOT initiate returns or refunds — these must be initiated by Slate CS agents via SFSC",
+        "All customer communications regarding cancellations route through Slate — Maker notifies Marketplacer, Slate notifies the customer"
       ],
       visual: `<div style="width:100%;max-width:360px;font-family:Manrope,sans-serif;display:flex;flex-direction:column;gap:10px">
-        <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;padding:14px">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#B45309;margin-bottom:6px">Open Decision</div>
-          <div style="font-size:13px;font-weight:700;color:#070E14">Maker cancellation rights</div>
-          <div style="font-size:11px;color:#627180;margin-top:4px">Should Makers be able to cancel orders directly, or only request cancellation via messaging?</div>
+        <div style="background:white;border:1.5px solid #059669;border-radius:10px;padding:14px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <div style="background:#DCFCE7;color:#065F46;border-radius:5px;padding:2px 8px;font-size:9px;font-weight:700">CONFIRMED ✓</div>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:#070E14">Maker cancellations</div>
+          <div style="font-size:11px;color:#627180;margin-top:4px">Makers can initiate cancellations via Seller Portal or API before the point of shipment. Configurable per Maker during onboarding.</div>
         </div>
-        <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;padding:14px">
-          <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:#B45309;margin-bottom:6px">Open Decision</div>
-          <div style="font-size:13px;font-weight:700;color:#070E14">Point of no return</div>
-          <div style="font-size:11px;color:#627180;margin-top:4px">At what order status does cancellation become impossible? Who defines this threshold?</div>
+        <div style="background:white;border:1.5px solid #DC2626;border-radius:10px;padding:14px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <div style="background:#FEE2E2;color:#991B1B;border-radius:5px;padding:2px 8px;font-size:9px;font-weight:700">CONFIRMED ✗</div>
+          </div>
+          <div style="font-size:13px;font-weight:700;color:#070E14">Maker returns and refunds</div>
+          <div style="font-size:11px;color:#627180;margin-top:4px">Makers cannot initiate returns or refunds. All return and refund requests must come from Slate CS agents via the Marketplacer API.</div>
         </div>
       </div>`
     },
@@ -913,88 +925,88 @@ const DECK = {
     },
     {
       type: "blank",
-      eyebrow: "Communication Architecture",
+      eyebrow: "Decision · Confirmed in Session 4",
       headline: "Operator, Maker and **Customer Messaging**",
       body: `<div style="font-family:Manrope,sans-serif;margin-top:6px;display:flex;flex-direction:column;gap:10px">
 
-        <div style="background:#FFFBEB;border:1.5px solid #B45309;border-radius:10px;padding:10px 16px;display:flex;align-items:flex-start;gap:10px">
-          <div style="font-size:18px;flex-shrink:0">🔑</div>
+        <div style="background:#DCFCE7;border:1.5px solid #059669;border-radius:10px;padding:10px 16px;display:flex;align-items:flex-start;gap:10px">
+          <div style="font-size:18px;flex-shrink:0">✅</div>
           <div>
-            <div style="font-size:11px;font-weight:700;color:#B45309;margin-bottom:3px">Key decisions for Slate</div>
-            <div style="font-size:11px;color:#070E14;line-height:1.6">Are all customer communications routed via SFSC to ensure business oversight and reporting? And does Slate want direct discourse between customers and Makers, or should all communication be mediated by the Operator?</div>
+            <div style="font-size:11px;font-weight:700;color:#065F46;margin-bottom:3px">Confirmed in session</div>
+            <div style="font-size:11px;color:#070E14;line-height:1.6">No direct customer-to-Maker communication. All customer communications route through Slate's customer service team via SFSC — maintaining full business oversight, reporting, and SLA management. Confirmed by Jennifer Foote, Gianni Cherry, and the broader group.</div>
           </div>
         </div>
 
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
 
-          <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="background:white;border:2px solid #005C71;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 12px rgba(0,92,113,0.12)">
             <div style="background:#003D4E;padding:8px 14px">
-              <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Option 1</div>
-              <div style="font-size:12px;font-weight:800;color:white">Order Annotations</div>
-              <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:1px">Customer → Seller via Operator</div>
+              <div style="display:flex;align-items:center;gap:6px">
+                <div style="background:#00CFB4;color:#070E14;border-radius:4px;padding:1px 7px;font-size:8px;font-weight:700">IN SCOPE</div>
+                <div style="font-size:12px;font-weight:800;color:white">Order Annotations</div>
+              </div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:1px">Operator → Maker (order-level)</div>
             </div>
             <div style="padding:10px 14px;display:flex;flex-direction:column;gap:5px;flex:1">
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Messages funnelled from customer to Maker via the Marketplacer Order Annotations API</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">SFSC agent sends order-specific messages to Maker via the Order Annotations API</div></div>
               <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Accessible via Operator Portal, Seller Portal, or API</div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Operator maintains oversight of all messages on the order</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Safe for order-related content — not subject to chat data restrictions</div></div>
             </div>
-            <div style="margin:0 14px 12px;background:#DBE9EE;border-radius:6px;padding:7px 10px;font-size:9px;color:#005C71;line-height:1.5"><strong>Best for:</strong> Keeping all communication tied to an order with full Operator visibility</div>
+            <div style="margin:0 14px 12px;background:#DBE9EE;border-radius:6px;padding:7px 10px;font-size:9px;color:#005C71;line-height:1.5"><strong>Best for:</strong> Order-specific queries, fulfilment instructions, escalations tied to an order</div>
           </div>
 
-          <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="background:white;border:2px solid #005C71;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 12px rgba(0,92,113,0.12)">
             <div style="background:#005C71;padding:8px 14px">
-              <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Option 2</div>
-              <div style="font-size:12px;font-weight:800;color:white">In-App Chat API</div>
+              <div style="display:flex;align-items:center;gap:6px">
+                <div style="background:#00CFB4;color:#070E14;border-radius:4px;padding:1px 7px;font-size:8px;font-weight:700">IN SCOPE</div>
+                <div style="font-size:12px;font-weight:800;color:white">In-App Chat API</div>
+              </div>
               <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:1px">Operator ↔ Maker (bidirectional)</div>
             </div>
             <div style="padding:10px 14px;display:flex;flex-direction:column;gap:5px;flex:1">
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Operator sends messages to Maker via <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">chatMessageCreate</code> — visible in Seller Portal</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">SFSC agent sends messages to Maker via <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">chatMessageCreate</code> — visible in Seller Portal</div></div>
               <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Maker can read and reply via Seller Portal or Seller API</div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Operator can read and respond via Operator Portal or Operator API (e.g. from SFSC)</div></div>
               <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Single continuous thread per Maker — all messages in one place</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#DC2626;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Must not carry personal, sensitive, or financial data — use Order Annotations for order detail</div></div>
             </div>
-            <div style="margin:0 14px 12px;background:#DBE9EE;border-radius:6px;padding:7px 10px;font-size:9px;color:#005C71;line-height:1.5"><strong>Best for:</strong> Ongoing Operator-to-Maker operational comms (fulfilment queries, escalations)</div>
+            <div style="margin:0 14px 12px;background:#DBE9EE;border-radius:6px;padding:7px 10px;font-size:9px;color:#005C71;line-height:1.5"><strong>Best for:</strong> General Maker comms — installation queries, SLA nudges, escalations not tied to a specific order</div>
           </div>
 
-          <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden;display:flex;flex-direction:column">
+          <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;opacity:0.6">
             <div style="background:#1E2D3D;padding:8px 14px">
-              <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Option 3</div>
-              <div style="font-size:12px;font-weight:800;color:white">Inquiry / Webform</div>
-              <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:1px">Customer → Seller (one-way)</div>
+              <div style="display:flex;align-items:center;gap:6px">
+                <div style="background:#627180;color:white;border-radius:4px;padding:1px 7px;font-size:8px;font-weight:700">NOT CHOSEN</div>
+                <div style="font-size:12px;font-weight:800;color:white">Inquiry / Webform</div>
+              </div>
+              <div style="font-size:9px;color:rgba(255,255,255,0.5);margin-top:1px">Customer → Maker direct (one-way)</div>
             </div>
             <div style="padding:10px 14px;display:flex;flex-direction:column;gap:5px;flex:1">
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Slate hosts a webform on CT and funnels messages to Makers using the <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">inquiryCreate</code> endpoint</div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#00CFB4;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Seller can read the inquiry — replies are handled offline, outside of Marketplacer</div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#DC2626;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">No in-platform reply mechanism — Maker responds directly to the customer via email or phone</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#DC2626;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#627180;line-height:1.4">Bypasses SFSC — no business oversight or reporting</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#DC2626;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#627180;line-height:1.4">One-way only — Maker replies offline via email or phone</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#DC2626;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#627180;line-height:1.4">Inconsistent with confirmed comms routing decision</div></div>
             </div>
-            <div style="margin:0 14px 12px;background:#FEF9C3;border-radius:6px;padding:7px 10px;font-size:9px;color:#92400E;line-height:1.5"><strong>Limitation:</strong> One-way only. Suitable for pre-sale product questions, not post-sale support</div>
+            <div style="margin:0 14px 12px;background:#F4F8FB;border-radius:6px;padding:7px 10px;font-size:9px;color:#627180;line-height:1.5"><strong>Ruled out:</strong> Direct customer-to-Maker contact not aligned with Slate's oversight model</div>
           </div>
 
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <div style="background:#FEE2E2;border:1.5px solid #DC2626;border-radius:10px;padding:10px 14px">
-            <div style="font-size:10px;font-weight:700;color:#DC2626;margin-bottom:4px">⚠ Chat content restriction</div>
-            <div style="font-size:10px;color:#070E14;line-height:1.5">Marketplacer in-app chat must not be used to exchange personal, sensitive, or financial data. Any flow passing order or payment details must use Order Annotations or the API — not the chat thread.</div>
-          </div>
-          <div style="background:#EDE9FE;border:1.5px solid #7C3AED;border-radius:10px;padding:10px 14px">
-            <div style="font-size:10px;font-weight:700;color:#5B21B6;margin-bottom:4px">Decision required</div>
-            <div style="font-size:10px;color:#070E14;line-height:1.5">Does Slate want customer-to-Maker communication at all? If yes, which mechanism — and does SFSC need visibility of every message for reporting and oversight purposes?</div>
-          </div>
+        <div style="background:#DBE9EE;border-radius:10px;padding:10px 14px;display:flex;align-items:flex-start;gap:10px">
+          <div style="font-size:16px;flex-shrink:0">ℹ️</div>
+          <div style="font-size:11px;color:#005C71;line-height:1.6">Both Order Annotations and In-App Chat API require a custom integration from SFSC — this must be scoped into Stream 2 technical enablement. Maker SLA requirements (response times shorter than Slate agent SLAs) to be defined in Session 6.</div>
         </div>
 
       </div>`
     },
     {
       type: "blank",
-      eyebrow: "CT-Initiated Cancellation Flow",
-      headline: "Customer Cancellation via **commercetools**",
+      eyebrow: "Slate Website / Fluent — Cancellation Flow",
+      headline: "Customer Cancellation via **Slate Website**",
       body: `<div style="font-family:Manrope,sans-serif;margin-top:4px;display:grid;grid-template-columns:1fr 2fr;gap:14px;align-items:start">
 
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
             <div style="background:#070E14;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Scenario</div></div>
-            <div style="padding:9px 12px;font-size:10px;color:#627180;line-height:1.6">Customer requests a cancellation via the Slate storefront (built on commercetools). The order has not yet been dispatched by the Maker. A Financial Controller must approve before any refund is issued.</div>
+            <div style="padding:9px 12px;font-size:10px;color:#627180;line-height:1.6">Customer requests a cancellation via the Slate website. The cancellation routes through Fluent Commerce (not directly to commercetools). The order has not yet been dispatched by the Maker. A Financial Controller must approve before any refund is issued.</div>
           </div>
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
             <div style="background:#005C71;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Key steps</div></div>
@@ -1003,10 +1015,6 @@ const DECK = {
               <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Webhook fires to CT/Salesforce notifying of pending cancellation</div></div>
               <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#9333EA;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><strong>FC approves</strong> via <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestApprove</code> — triggers Adyen refund</div></div>
             </div>
-          </div>
-          <div style="background:#EDE9FE;border:1.5px solid #7C3AED;border-radius:10px;padding:9px 12px">
-            <div style="font-size:9px;font-weight:700;color:#5B21B6;margin-bottom:3px">Human in the loop</div>
-            <div style="font-size:10px;color:#070E14;line-height:1.5">Financial Controller must review and approve all refunds before funds are released via Adyen. This is the final gate in every flow.</div>
           </div>
         </div>
 
@@ -1023,8 +1031,8 @@ const DECK = {
             <!-- Participants: Customer x=55, CT x=160, MP x=290, FC x=420, Maker x=540 -->
             <rect x="10"  y="6" width="90"  height="22" rx="5" fill="#F9E8FF" stroke="#C084FC" stroke-width="1.5"/>
             <text x="55"  y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#7E22CE">Customer</text>
-            <rect x="110" y="6" width="100" height="22" rx="5" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
-            <text x="160" y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#1E40AF">commercetools</text>
+            <rect x="110" y="6" width="100" height="22" rx="5" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="160" y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#005C71">Slate / Fluent</text>
             <rect x="240" y="6" width="100" height="22" rx="5" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
             <text x="290" y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#005C71">Marketplacer</text>
             <rect x="370" y="6" width="100" height="22" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
@@ -1034,7 +1042,7 @@ const DECK = {
 
             <!-- Lifelines -->
             <line x1="55"  y1="28" x2="55"  y2="338" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
-            <line x1="160" y1="28" x2="160" y2="338" stroke="#3B82F6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+            <line x1="160" y1="28" x2="160" y2="338" stroke="#005C71" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
             <line x1="290" y1="28" x2="290" y2="338" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
             <line x1="420" y1="28" x2="420" y2="338" stroke="#7C3AED" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
             <line x1="535" y1="28" x2="535" y2="338" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
@@ -1043,7 +1051,7 @@ const DECK = {
             <line x1="55" y1="42" x2="154" y2="42" stroke="#070E14" stroke-width="1.2" marker-end="url(#aDct1)"/>
             <text x="107" y="39" text-anchor="middle" font-size="7.5" fill="#070E14">Place order</text>
             <line x1="160" y1="52" x2="284" y2="52" stroke="#070E14" stroke-width="1.2" marker-end="url(#aDct1)"/>
-            <text x="222" y="49" text-anchor="middle" font-size="7.5" fill="#070E14">orderCreate</text>
+            <text x="222" y="49" text-anchor="middle" font-size="7.5" fill="#070E14">orderCreate (via Fluent)</text>
             <line x1="290" y1="62" x2="529" y2="62" stroke="#070E14" stroke-width="1.2" marker-end="url(#aDct1)"/>
             <text x="410" y="59" text-anchor="middle" font-size="7.5" fill="#070E14">Order transfer to Maker</text>
             <line x1="290" y1="72" x2="166" y2="72" stroke="#070E14" stroke-width="1.2" stroke-dasharray="4,2" marker-end="url(#aDct1)"/>
@@ -1075,8 +1083,8 @@ const DECK = {
             <!-- FC approval section -->
             <rect x="10" y="178" width="620" height="60" rx="5" fill="none" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,3"/>
             <rect x="10" y="178" width="58" height="13" rx="3" fill="#EDE9FE"/>
-            <text x="39" y="188" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">FC review</text>
-            <text x="78" y="188" font-size="7.5" fill="#7C3AED">Financial Controller approves refund</text>
+            <text x="39" y="188" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">Automated refund</text>
+            <text x="78" y="188" font-size="7.5" fill="#7C3AED">refundRequestApprove triggered programmatically</text>
             <line x1="420" y1="198" x2="296" y2="198" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#aPct1)"/>
             <text x="358" y="194" text-anchor="middle" font-size="7.5" fill="#7C3AED">refundRequestApprove</text>
             <line x1="290" y1="210" x2="166" y2="210" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,2" marker-end="url(#aPct1)"/>
@@ -1093,8 +1101,8 @@ const DECK = {
             <!-- Bottom participants -->
             <rect x="10"  y="274" width="90"  height="20" rx="5" fill="#F9E8FF" stroke="#C084FC" stroke-width="1.5"/>
             <text x="55"  y="288" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7E22CE">Customer</text>
-            <rect x="110" y="274" width="100" height="20" rx="5" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
-            <text x="160" y="288" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1E40AF">commercetools</text>
+            <rect x="110" y="274" width="100" height="20" rx="5" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="160" y="288" text-anchor="middle" font-size="7.5" font-weight="700" fill="#005C71">Slate / Fluent</text>
             <rect x="240" y="274" width="100" height="20" rx="5" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
             <text x="290" y="288" text-anchor="middle" font-size="7.5" font-weight="700" fill="#005C71">Marketplacer</text>
             <rect x="370" y="274" width="100" height="20" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
@@ -1108,27 +1116,23 @@ const DECK = {
     },
     {
       type: "blank",
-      eyebrow: "CT-Initiated Return / Refund Flow",
-      headline: "Customer Return/Refund via **commercetools**",
+      eyebrow: "Slate Website / Fluent — Return / Refund Flow",
+      headline: "Customer Return/Refund via **Slate Website**",
       body: `<div style="font-family:Manrope,sans-serif;margin-top:4px;display:grid;grid-template-columns:1fr 2fr;gap:14px;align-items:start">
 
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
             <div style="background:#070E14;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Scenario</div></div>
-            <div style="padding:9px 12px;font-size:10px;color:#627180;line-height:1.6">Customer requests a return via the Slate storefront. The item has already been dispatched. commercetools drives the API call into Marketplacer. Maker handles return logistics. FC approves final refund.</div>
+            <div style="padding:9px 12px;font-size:10px;color:#627180;line-height:1.6">Customer requests a return via the Slate website. The return routes through Fluent Commerce into Marketplacer — commercetools is a backend system, not the customer-facing interface. Maker handles return logistics. FC approves final refund.</div>
           </div>
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
-            <div style="background:#005C71;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Status flow</div></div>
+            <div style="background:#005C71;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Key steps</div></div>
             <div style="padding:9px 12px;display:flex;flex-direction:column;gap:5px">
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PENDING_APPROVAL</code> — Maker reviews return</div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">AWAITING_RETURN</code> — Maker requests item back</div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PROCESSED</code> — Maker accepts returned item</div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#7C3AED;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">REFUNDED</code> — FC approves final refund</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Slate website triggers <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestCreate</code> with <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PENDING_APPROVAL</code> — Maker reviews return</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Maker calls <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestLineItemReturn</code> — customer ships item back</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Maker calls <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestLineItemAccept</code> — return accepted, status <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PROCESSED</code></div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#7C3AED;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><strong>FC approves</strong> via <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestApprove</code> — triggers Adyen refund</div></div>
             </div>
-          </div>
-          <div style="background:#EDE9FE;border:1.5px solid #7C3AED;border-radius:10px;padding:9px 12px">
-            <div style="font-size:9px;font-weight:700;color:#5B21B6;margin-bottom:3px">Human in the loop</div>
-            <div style="font-size:10px;color:#070E14;line-height:1.5">Financial Controller must approve via <code style="background:rgba(92,43,168,0.1);padding:1px 3px;border-radius:3px;font-size:9px">refundRequestApprove</code> before Adyen releases funds.</div>
           </div>
         </div>
 
@@ -1144,8 +1148,8 @@ const DECK = {
             <!-- Participants: Customer x=55, CT x=160, MP x=285, FC x=410, Maker x=535 -->
             <rect x="10"  y="6" width="90"  height="22" rx="5" fill="#F9E8FF" stroke="#C084FC" stroke-width="1.5"/>
             <text x="55"  y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#7E22CE">Customer</text>
-            <rect x="110" y="6" width="100" height="22" rx="5" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
-            <text x="160" y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#1E40AF">commercetools</text>
+            <rect x="110" y="6" width="100" height="22" rx="5" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="160" y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#005C71">Slate / Fluent</text>
             <rect x="235" y="6" width="100" height="22" rx="5" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
             <text x="285" y="21" text-anchor="middle" font-size="8" font-weight="700" fill="#005C71">Marketplacer</text>
             <rect x="360" y="6" width="100" height="22" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
@@ -1155,7 +1159,7 @@ const DECK = {
 
             <!-- Lifelines -->
             <line x1="55"  y1="28" x2="55"  y2="408" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
-            <line x1="160" y1="28" x2="160" y2="408" stroke="#3B82F6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+            <line x1="160" y1="28" x2="160" y2="408" stroke="#005C71" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
             <line x1="285" y1="28" x2="285" y2="408" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
             <line x1="410" y1="28" x2="410" y2="408" stroke="#7C3AED" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
             <line x1="535" y1="28" x2="535" y2="408" stroke="#DDE5EC" stroke-width="1" stroke-dasharray="4,3"/>
@@ -1164,7 +1168,7 @@ const DECK = {
             <line x1="55" y1="42" x2="154" y2="42" stroke="#070E14" stroke-width="1.2" marker-end="url(#aDct2)"/>
             <text x="107" y="39" text-anchor="middle" font-size="7.5" fill="#070E14">Place order</text>
             <line x1="160" y1="52" x2="279" y2="52" stroke="#070E14" stroke-width="1.2" marker-end="url(#aDct2)"/>
-            <text x="220" y="49" text-anchor="middle" font-size="7.5" fill="#070E14">orderCreate</text>
+            <text x="220" y="49" text-anchor="middle" font-size="7.5" fill="#070E14">orderCreate (via Fluent)</text>
             <line x1="285" y1="62" x2="529" y2="62" stroke="#070E14" stroke-width="1.2" marker-end="url(#aDct2)"/>
             <text x="407" y="59" text-anchor="middle" font-size="7.5" fill="#070E14">Order transfer to Maker</text>
             <line x1="535" y1="72" x2="291" y2="72" stroke="#070E14" stroke-width="1.2" marker-end="url(#aDct2)"/>
@@ -1218,8 +1222,8 @@ const DECK = {
             <!-- FC review -->
             <rect x="10" y="282" width="620" height="58" rx="5" fill="none" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,3"/>
             <rect x="10" y="282" width="58" height="13" rx="3" fill="#EDE9FE"/>
-            <text x="39" y="292" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">FC review</text>
-            <text x="78" y="292" font-size="7.5" fill="#7C3AED">Financial Controller approves refund</text>
+            <text x="39" y="292" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">Automated refund</text>
+            <text x="78" y="292" font-size="7.5" fill="#7C3AED">refundRequestApprove triggered programmatically</text>
             <line x1="410" y1="302" x2="291" y2="302" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#aPct2)"/>
             <text x="350" y="298" text-anchor="middle" font-size="7.5" fill="#7C3AED">refundRequestApprove</text>
             <line x1="285" y1="314" x2="166" y2="314" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,2" marker-end="url(#aPct2)"/>
@@ -1236,8 +1240,8 @@ const DECK = {
             <!-- Bottom participants -->
             <rect x="10"  y="376" width="90"  height="20" rx="5" fill="#F9E8FF" stroke="#C084FC" stroke-width="1.5"/>
             <text x="55"  y="390" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7E22CE">Customer</text>
-            <rect x="110" y="376" width="100" height="20" rx="5" fill="#EFF6FF" stroke="#3B82F6" stroke-width="1.5"/>
-            <text x="160" y="390" text-anchor="middle" font-size="7.5" font-weight="700" fill="#1E40AF">commercetools</text>
+            <rect x="110" y="376" width="100" height="20" rx="5" fill="#DBE9EE" stroke="#005C71" stroke-width="1.5"/>
+            <text x="160" y="390" text-anchor="middle" font-size="7.5" font-weight="700" fill="#005C71">Slate / Fluent</text>
             <rect x="235" y="376" width="100" height="20" rx="5" fill="#D7FFF9" stroke="#00CFB4" stroke-width="1.5"/>
             <text x="285" y="390" text-anchor="middle" font-size="7.5" font-weight="700" fill="#005C71">Marketplacer</text>
             <rect x="360" y="376" width="100" height="20" rx="5" fill="#EDE9FE" stroke="#7C3AED" stroke-width="1.5"/>
@@ -1261,16 +1265,12 @@ const DECK = {
             <div style="padding:9px 12px;font-size:10px;color:#627180;line-height:1.6">A Salesforce Service Cloud agent receives a cancellation request via a case. The agent triggers the cancellation directly from SFSC via the Marketplacer API. The order has not yet been dispatched. FC approves the refund.</div>
           </div>
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
-            <div style="background:#005C71;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Agent actions</div></div>
+            <div style="background:#005C71;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Key steps</div></div>
             <div style="padding:9px 12px;display:flex;flex-direction:column;gap:5px">
               <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#F59E0B;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Agent opens case in SFSC, finds order via Marketplacer integration</div></div>
               <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Agent triggers <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestCreate</code> with <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">REFUND_ACCEPTED</code></div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#7C3AED;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">FC reviews and approves — Adyen refund issued</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#7C3AED;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><strong>FC approves</strong> via <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestApprove</code> — triggers Adyen refund</div></div>
             </div>
-          </div>
-          <div style="background:#FFF7ED;border:1.5px solid #F59E0B;border-radius:10px;padding:9px 12px">
-            <div style="font-size:9px;font-weight:700;color:#B45309;margin-bottom:3px">Day 1 vs Day 2</div>
-            <div style="font-size:10px;color:#070E14;line-height:1.5">Day 1: agent uses Operator Portal via SSO. Day 2: agent triggers from within SFSC via Marketplacer API integration — zero context switching.</div>
           </div>
         </div>
 
@@ -1343,8 +1343,8 @@ const DECK = {
             <!-- FC review -->
             <rect x="10" y="198" width="620" height="62" rx="5" fill="none" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,3"/>
             <rect x="10" y="198" width="58" height="13" rx="3" fill="#EDE9FE"/>
-            <text x="39" y="208" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">FC review</text>
-            <text x="78" y="208" font-size="7.5" fill="#7C3AED">Financial Controller approves refund</text>
+            <text x="39" y="208" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">Automated refund</text>
+            <text x="78" y="208" font-size="7.5" fill="#7C3AED">refundRequestApprove triggered programmatically</text>
             <line x1="430" y1="218" x2="306" y2="218" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#aPsf1)"/>
             <text x="368" y="214" text-anchor="middle" font-size="7.5" fill="#7C3AED">refundRequestApprove</text>
             <line x1="300" y1="230" x2="176" y2="230" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,2" marker-end="url(#aPsf1)"/>
@@ -1386,17 +1386,13 @@ const DECK = {
             <div style="padding:9px 12px;font-size:10px;color:#627180;line-height:1.6">A SFSC agent handles a post-dispatch return. The item has been sent. The agent drives the full return flow via the Marketplacer API — from request creation through Maker return acceptance and final FC-approved refund.</div>
           </div>
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
-            <div style="background:#005C71;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Status flow</div></div>
+            <div style="background:#005C71;padding:7px 12px"><div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Key steps</div></div>
             <div style="padding:9px 12px;display:flex;flex-direction:column;gap:5px">
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#F59E0B;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Agent creates return request from SFSC case — <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PENDING_APPROVAL</code></div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Maker requests item return — <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">AWAITING_RETURN</code></div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Maker accepts item — <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PROCESSED</code></div></div>
-              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#7C3AED;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">FC approves — <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">REFUNDED</code></div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#F59E0B;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Agent opens SFSC case, triggers <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestCreate</code> with <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PENDING_APPROVAL</code></div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Maker calls <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestLineItemReturn</code> — customer ships item back</div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4">Maker calls <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestLineItemAccept</code> — return accepted, status <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">PROCESSED</code></div></div>
+              <div style="display:flex;gap:7px"><div style="width:5px;height:5px;border-radius:50%;background:#7C3AED;flex-shrink:0;margin-top:4px"></div><div style="font-size:10px;color:#070E14;line-height:1.4"><strong>FC approves</strong> via <code style="background:#F4F8FB;padding:1px 3px;border-radius:3px;font-size:9px">refundRequestApprove</code> — triggers Adyen refund</div></div>
             </div>
-          </div>
-          <div style="background:#EDE9FE;border:1.5px solid #7C3AED;border-radius:10px;padding:9px 12px">
-            <div style="font-size:9px;font-weight:700;color:#5B21B6;margin-bottom:3px">Human in the loop</div>
-            <div style="font-size:10px;color:#070E14;line-height:1.5">FC is the final approval gate. Until <code style="background:rgba(92,43,168,0.1);padding:1px 3px;border-radius:3px;font-size:9px">refundRequestApprove</code> is called, no funds are released.</div>
           </div>
         </div>
 
@@ -1492,8 +1488,8 @@ const DECK = {
             <!-- FC review -->
             <rect x="10" y="296" width="620" height="62" rx="5" fill="none" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,3"/>
             <rect x="10" y="296" width="58" height="13" rx="3" fill="#EDE9FE"/>
-            <text x="39" y="306" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">FC review</text>
-            <text x="78" y="306" font-size="7.5" fill="#7C3AED">Financial Controller approves refund</text>
+            <text x="39" y="306" text-anchor="middle" font-size="7.5" font-weight="700" fill="#7C3AED">Automated refund</text>
+            <text x="78" y="306" font-size="7.5" fill="#7C3AED">refundRequestApprove triggered programmatically</text>
             <line x1="430" y1="316" x2="306" y2="316" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#aPsf2)"/>
             <text x="368" y="312" text-anchor="middle" font-size="7.5" fill="#7C3AED">refundRequestApprove</text>
             <line x1="300" y1="328" x2="176" y2="328" stroke="#7C3AED" stroke-width="1.2" stroke-dasharray="4,2" marker-end="url(#aPsf2)"/>
@@ -1532,23 +1528,24 @@ const DECK = {
 
         <div style="display:flex;flex-direction:column;gap:8px">
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
-            <div style="background:#003D4E;padding:8px 14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Decisions to lock this session</div></div>
+            <div style="background:#059669;padding:8px 14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.7)">Decisions confirmed in session</div></div>
             <div style="padding:10px 14px;display:flex;flex-direction:column;gap:6px">
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Day 1 model: SFSC full API integration from go-live, or SSO + Operator Portal first?</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Can Makers formally initiate cancellations in Marketplacer?</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Can Makers initiate returns/refunds, or only request them?</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Is customer-to-Maker communication required? If so, which mechanism?</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#B45309;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Does all customer communication route via SFSC for oversight and reporting?</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Full SFSC API integration from Day 1 — SSO swivel-chair not required</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Makers CAN initiate cancellations via Seller Portal or API</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Makers CANNOT initiate returns or refunds — Slate CS agents only</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">All customer-to-Maker communication routes via SFSC — no direct contact</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Refund approval is programmatic — no manual Financial Controller step</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Customer self-cancellation in scope for Day 1 — 15-minute remorse period under consideration</div></div>
             </div>
           </div>
 
           <div style="background:white;border:1px solid #DDE5EC;border-radius:10px;overflow:hidden">
             <div style="background:#005C71;padding:8px 14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Flows agreed and documented</div></div>
             <div style="padding:10px 14px;display:flex;flex-direction:column;gap:6px">
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Customer cancellation via commercetools + FC approval</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Customer return/refund via commercetools + FC approval</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">SFSC agent cancellation via Marketplacer API + FC approval</div></div>
-              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">SFSC agent return/refund via Marketplacer API + FC approval</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Customer self-cancellation via Slate website — automated via Fluent</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">Customer return/refund via Slate website — programmatic approval</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">SFSC agent cancellation via Marketplacer API — programmatic approval</div></div>
+              <div style="display:flex;gap:8px"><div style="width:6px;height:6px;border-radius:50%;background:#059669;flex-shrink:0;margin-top:4px"></div><div style="font-size:11px;color:#070E14;line-height:1.4">SFSC agent return/refund via Marketplacer API — programmatic approval</div></div>
             </div>
           </div>
         </div>
@@ -1558,17 +1555,18 @@ const DECK = {
             <div style="background:#1E2D3D;padding:8px 14px"><div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.6)">Output checklist</div></div>
             <div style="padding:10px 14px;display:flex;flex-direction:column;gap:7px">
               <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Support workflow definition (cancel, return, refund, comms)</div></div>
-              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Channel ownership: which system owns each touchpoint at Day 1 and Day 2</div></div>
-              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Maker permissions: agreed scope of Maker-initiated actions</div></div>
-              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Communication model: Operator-to-Maker and Customer-to-Maker approach confirmed</div></div>
-              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Financial Controller approval gate confirmed for all refund flows</div></div>
-              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#FEF9C3;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#92400E;font-weight:700">?</div><div style="font-size:11px;color:#070E14;font-weight:500">Day 1 integration model: API-first or SSO + portal fallback</div></div>
+              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Channel ownership: which system owns each touchpoint at Day 1</div></div>
+              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Maker permissions: cancellations yes, returns/refunds no</div></div>
+              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Communication model: all comms via SFSC confirmed</div></div>
+              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Refund approval: programmatic via API — no manual portal step</div></div>
+              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#D7FFF9;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#009E8A;font-weight:700">✓</div><div style="font-size:11px;color:#070E14;font-weight:500">Day 1 model: full SFSC API integration confirmed</div></div>
+              <div style="display:flex;align-items:center;gap:10px"><div style="width:16px;height:16px;border-radius:50%;background:#FEF9C3;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:9px;color:#92400E;font-weight:700">→</div><div style="font-size:11px;color:#070E14;font-weight:500">Payout solution (MPay vs Adyen) — deferred to Session 5</div></div>
             </div>
           </div>
 
           <div style="background:#DBE9EE;border-radius:10px;padding:10px 14px">
-            <div style="font-size:10px;font-weight:700;color:#005C71;margin-bottom:4px">Stream 2 implication</div>
-            <div style="font-size:11px;color:#070E14;line-height:1.5">If Slate confirms full API integration from Day 1, the SFSC Marketplacer integration must be scoped into Stream 2 technical enablement from the start. This affects the integration backlog, enablement sequence, and go-live timeline.</div>
+            <div style="font-size:10px;font-weight:700;color:#005C71;margin-bottom:4px">Stream 2 implication — now locked</div>
+            <div style="font-size:11px;color:#070E14;line-height:1.5">The SFSC API integration must be included in Stream 2 technical enablement from the start. Order Annotations and Chat API integrations also need to be scoped. Marketplacer and Aries to confirm capacity and sequencing.</div>
           </div>
         </div>
 
