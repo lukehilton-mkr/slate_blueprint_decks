@@ -604,7 +604,7 @@ kbd {
 const DECK = {
   title: "Product Identifier Alignment",
   presenter: "Marketplacer · Solutions",
-  date: "May 2025",
+  date: "June 2026",
   audience: "Slate",
   confidential: false,
   slides: [
@@ -712,6 +712,87 @@ const DECK = {
         </div>
       </div>`
     }
+    ,{
+      type: "blank",
+      eyebrow: "Assumption — Pending Slate Confirmation",
+      headline: "Assumed **identifier flow**: Marketplacer → Akeneo → NetSuite → Windchill → Akeneo → commercetools",
+      body: `<div style="display:flex;gap:28px;margin-top:12px;align-items:flex-start;">
+        <div style="flex:1.6;min-width:0;">
+          <svg width="100%" viewBox="0 0 560 430" role="img" style="display:block;">
+            <title>Product identifier sequence flow</title>
+            <defs>
+              <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <!-- System labels -->
+            <rect x="10"  y="8" width="84" height="30" rx="5" fill="#00CFB4" fill-opacity="0.15" stroke="#00CFB4" stroke-width="0.5"/>
+            <text x="52"  y="23" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="11" font-weight="600" fill="#005C71">Marketplacer</text>
+            <rect x="116" y="8" width="72" height="30" rx="5" fill="#7F77DD" fill-opacity="0.15" stroke="#7F77DD" stroke-width="0.5"/>
+            <text x="152" y="23" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="11" font-weight="600" fill="#3C3489">Akeneo</text>
+            <rect x="210" y="8" width="72" height="30" rx="5" fill="#EF9F27" fill-opacity="0.15" stroke="#EF9F27" stroke-width="0.5"/>
+            <text x="246" y="23" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="11" font-weight="600" fill="#633806">NetSuite</text>
+            <rect x="304" y="8" width="72" height="30" rx="5" fill="#D85A30" fill-opacity="0.15" stroke="#D85A30" stroke-width="0.5"/>
+            <text x="340" y="23" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="11" font-weight="600" fill="#4A1B0C">Windchill</text>
+            <rect x="398" y="8" width="82" height="30" rx="5" fill="#378ADD" fill-opacity="0.15" stroke="#378ADD" stroke-width="0.5"/>
+            <text x="439" y="23" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="11" font-weight="600" fill="#0C447C">commercetools</text>
+            <!-- Lifelines -->
+            <line x1="52"  y1="38" x2="52"  y2="410" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4 3"/>
+            <line x1="152" y1="38" x2="152" y2="410" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4 3"/>
+            <line x1="246" y1="38" x2="246" y2="410" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4 3"/>
+            <line x1="340" y1="38" x2="340" y2="410" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4 3"/>
+            <line x1="439" y1="38" x2="439" y2="410" stroke="#ccc" stroke-width="0.8" stroke-dasharray="4 3"/>
+            <!-- Step 1: Maker creates → MP UUID -->
+            <rect x="10" y="50" width="84" height="28" rx="3" fill="#f5f5f3" stroke="#ccc" stroke-width="0.5"/>
+            <text x="52" y="64" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="9.5" fill="#444">Maker creates product</text>
+            <!-- 1→2 MP to Akeneo -->
+            <line x1="94" y1="100" x2="149" y2="100" stroke="#7F77DD" stroke-width="1.2" marker-end="url(#arr2)" fill="none"/>
+            <text x="121" y="93" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" fill="#7F77DD">vetted product</text>
+            <!-- Akeneo assigns UUID, returns -->
+            <rect x="116" y="108" width="72" height="24" rx="3" fill="#f5f5f3" stroke="#ccc" stroke-width="0.5"/>
+            <text x="152" y="120" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="9" fill="#444">assigns Akeneo UUID</text>
+            <line x1="151" y1="134" x2="95" y2="134" stroke="#7F77DD" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arr2)" fill="none"/>
+            <text x="121" y="145" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" fill="#7F77DD">externalIdUpsert</text>
+            <!-- 2→3 Akeneo to NetSuite -->
+            <line x1="188" y1="172" x2="243" y2="172" stroke="#EF9F27" stroke-width="1.2" marker-end="url(#arr2)" fill="none"/>
+            <text x="215" y="165" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" fill="#BA7517">product record</text>
+            <!-- NetSuite assigns item ID, returns -->
+            <rect x="210" y="180" width="72" height="24" rx="3" fill="#f5f5f3" stroke="#ccc" stroke-width="0.5"/>
+            <text x="246" y="192" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="9" fill="#444">assigns item ID</text>
+            <line x1="245" y1="206" x2="189" y2="206" stroke="#EF9F27" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arr2)" fill="none"/>
+            <text x="215" y="217" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" fill="#BA7517">NS_ITEM_ID returned</text>
+            <!-- 3→4 NetSuite to Windchill -->
+            <line x1="282" y1="244" x2="337" y2="244" stroke="#D85A30" stroke-width="1.2" marker-end="url(#arr2)" fill="none"/>
+            <text x="309" y="237" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" fill="#993C1D">parts record</text>
+            <!-- Windchill assigns PLM ID, returns -->
+            <rect x="304" y="252" width="72" height="24" rx="3" fill="#f5f5f3" stroke="#ccc" stroke-width="0.5"/>
+            <text x="340" y="264" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="9" fill="#444">assigns PLM ID</text>
+            <line x1="339" y1="278" x2="189" y2="278" stroke="#D85A30" stroke-width="1" stroke-dasharray="3 3" marker-end="url(#arr2)" fill="none"/>
+            <text x="265" y="289" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" fill="#993C1D">WINDCHILL_ID → Akeneo</text>
+            <!-- 4→5 Akeneo to CT -->
+            <line x1="188" y1="316" x2="436" y2="316" stroke="#378ADD" stroke-width="1.2" marker-end="url(#arr2)" fill="none"/>
+            <text x="312" y="309" text-anchor="middle" font-family="Manrope,sans-serif" font-size="9" fill="#185FA5">enriched product sync</text>
+            <!-- CT variant -->
+            <rect x="398" y="324" width="82" height="28" rx="3" fill="#f5f5f3" stroke="#ccc" stroke-width="0.5"/>
+            <text x="439" y="334" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="9" fill="#444">CT variant created</text>
+            <text x="439" y="346" text-anchor="middle" dominant-baseline="central" font-family="Manrope,sans-serif" font-size="9" fill="#444">ready to sell</text>
+            <!-- Step numbers -->
+            <text x="96" y="102" font-family="Manrope,sans-serif" font-size="9" fill="#aaa">①</text>
+            <text x="96" y="174" font-family="Manrope,sans-serif" font-size="9" fill="#aaa">②</text>
+            <text x="190" y="246" font-family="Manrope,sans-serif" font-size="9" fill="#aaa">③</text>
+            <text x="96" y="318" font-family="Manrope,sans-serif" font-size="9" fill="#aaa">④</text>
+          </svg>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;gap:10px;padding-top:4px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.8px;text-transform:uppercase;color:#005C71;margin-bottom:2px;">Assumptions</div>
+          <div style="background:#FFF8E1;border-left:3px solid #EF9F27;border-radius:0 6px 6px 0;padding:9px 12px;font-size:12px;color:#633806;line-height:1.6;"><strong>A1</strong> — Windchill is the system of record for vehicle accessories and service parts (PLM). Apparel and merch follow a separate flow.</div>
+          <div style="background:#FFF8E1;border-left:3px solid #EF9F27;border-radius:0 6px 6px 0;padding:9px 12px;font-size:12px;color:#633806;line-height:1.6;"><strong>A2</strong> — NetSuite is the ERP. A NetSuite item ID must exist before Windchill creates a parts record.</div>
+          <div style="background:#FFF8E1;border-left:3px solid #EF9F27;border-radius:0 6px 6px 0;padding:9px 12px;font-size:12px;color:#633806;line-height:1.6;"><strong>A3</strong> — Akeneo is the single enrichment hub. All external IDs (Akeneo UUID, NetSuite item ID, Windchill PLM ID) are written back to Akeneo before the product syncs to commercetools.</div>
+          <div style="background:#FFF8E1;border-left:3px solid #EF9F27;border-radius:0 6px 6px 0;padding:9px 12px;font-size:12px;color:#633806;line-height:1.6;"><strong>A4</strong> — The Marketplacer Advert carries ExternalIds for each downstream system ID, enabling reverse lookup via the externalIds query.</div>
+          <div style="background:#E8F5E9;border-left:3px solid #3B6D11;border-radius:0 6px 6px 0;padding:9px 12px;font-size:12px;color:#173404;line-height:1.6;"><strong>To confirm</strong> — Does Windchill feed Akeneo directly or via NetSuite? Is there a separate flow for merch/apparel products that bypasses Windchill?</div>
+        </div>
+      </div>`
+    }
   ]
 };
 </script>
@@ -725,7 +806,7 @@ const DECK = {
   <div class="top-bar-brand"><div class="top-bar-dot"></div> MARKETPLACER</div>
   <div class="top-bar-title" id="mkt-title"></div>
   <div class="top-bar-controls">
-    <span class="slide-counter"><span id="mkt-cur">1</span> / <span id="mkt-total">5</span></span>
+    <span class="slide-counter"><span id="mkt-cur">1</span> / <span id="mkt-total">6</span></span>
     <button class="ctrl-btn" id="mkt-prev">&#8592; Prev</button>
     <button class="ctrl-btn accent" id="mkt-next">Next &#8594;</button>
     <button class="ctrl-btn" id="mkt-fs">&#x26F6;</button>
